@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dqy1mvbxbu48"]
+
+[node name="EstacaoSoma" type="Node2D" unique_id=1515939005]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=876766693]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1963825565]
+offset_right = 40.0
+offset_bottom = 23.0
