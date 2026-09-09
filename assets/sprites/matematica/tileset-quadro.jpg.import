@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clllou766hrqv"
-path="res://.godot/imported/digit0.png-12ef2d7e791faf382ea574cf27b7de09.ctex"
+uid="uid://bnq71i8tru0j"
+path="res://.godot/imported/tileset-quadro.jpg-b54edb7505b7b008615365620a7e5c81.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/digits/digit0.png"
-dest_files=["res://.godot/imported/digit0.png-12ef2d7e791faf382ea574cf27b7de09.ctex"]
+source_file="res://assets/sprites/matematica/tileset-quadro.jpg"
+dest_files=["res://.godot/imported/tileset-quadro.jpg-b54edb7505b7b008615365620a7e5c81.ctex"]
 
 [params]
 

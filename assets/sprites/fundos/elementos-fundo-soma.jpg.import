@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dii5muavmbfwq"
-path="res://.godot/imported/digit7.png-7b17ddd10655863d4795d89d78384eed.ctex"
+uid="uid://bcybom2nrswtk"
+path="res://.godot/imported/elementos-fundo-soma.jpg-0c3a9cf59fa6b1956169d4e52641a281.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/digits/digit7.png"
-dest_files=["res://.godot/imported/digit7.png-7b17ddd10655863d4795d89d78384eed.ctex"]
+source_file="res://assets/sprites/fundos/elementos-fundo-soma.jpg"
+dest_files=["res://.godot/imported/elementos-fundo-soma.jpg-0c3a9cf59fa6b1956169d4e52641a281.ctex"]
 
 [params]
 
