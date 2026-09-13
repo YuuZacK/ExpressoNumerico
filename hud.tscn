@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://b4xn1ewspxrwg"]
+
+[ext_resource type="Texture2D" uid="uid://bfmo84q5rcud5" path="res://cenas/personagens/icon.svg" id="1_37p78"]
+[ext_resource type="FontFile" uid="uid://dn5e2lfsl1qjb" path="res://Fontes/Bebas_Neue/BebasNeue-Regular.ttf" id="1_64ctp"]
+
+[node name="HUD" type="CanvasLayer" unique_id=134351520]
+
+[node name="BarraDeTempo" type="ProgressBar" parent="." unique_id=2110593794]
+anchors_preset = -1
+anchor_right = 0.058000002
+anchor_bottom = 0.002
+offset_left = 153.0
+offset_top = 1.0
+offset_right = 882.184
+offset_bottom = 35.704
+value = 100.0
+show_percentage = false
+
+[node name="TextoAcertos" type="Label" parent="." unique_id=1421461566]
+offset_left = 963.0
+offset_top = 2.0
+offset_right = 1055.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("1_64ctp")
+theme_override_font_sizes/font_size = 24
+text = "Acertos: 0/6
+"
+
+[node name="TextoPontos" type="Label" parent="." unique_id=973574154]
+anchors_preset = -1
+anchor_right = 0.51500005
+anchor_bottom = 0.038000003
+offset_left = 1071.0
+offset_top = 4.0
+offset_right = 551.72
+offset_bottom = 42.376
+theme_override_fonts/font = ExtResource("1_64ctp")
+theme_override_font_sizes/font_size = 24
+text = "Pontos: 0
+"
+
+[node name="CaixaDeVidas" type="HBoxContainer" parent="." unique_id=132220806]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Vida1" type="TextureRect" parent="CaixaDeVidas" unique_id=894211388]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("1_37p78")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Vida2" type="TextureRect" parent="CaixaDeVidas" unique_id=2083915728]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("1_37p78")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Vida3" type="TextureRect" parent="CaixaDeVidas" unique_id=1994566471]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("1_37p78")
+expand_mode = 1
+stretch_mode = 4

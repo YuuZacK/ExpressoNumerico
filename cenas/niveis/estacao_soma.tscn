@@ -7,3 +7,5 @@
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=1963825565]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1423599799]
