@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dqy1mvbxbu48"]
 
 [ext_resource type="Texture2D" uid="uid://bo1wc3eupni7y" path="res://assets/sprites/fundos/fundo-cenario-soma-limpo.jpg" id="1_tkbbo"]
-[ext_resource type="Texture2D" uid="uid://ch60oc4ldi5lp" path="res://assets/sprites/coracao-128x128.png" id="2_2ral6"]
+[ext_resource type="PackedScene" uid="uid://d3xrakd14x85e" path="res://hud.tscn" id="3_nux70"]
 
 [node name="EstacaoSoma" type="Node2D" unique_id=1515939005]
 
@@ -10,17 +10,4 @@ position = Vector2(576.50006, 323.5)
 scale = Vector2(0.45530063, 0.38374856)
 texture = ExtResource("1_tkbbo")
 
-[node name="Coracao128x128" type="Sprite2D" parent="." unique_id=1835302115]
-position = Vector2(150, 66)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_2ral6")
-
-[node name="Coracao128x129" type="Sprite2D" parent="." unique_id=219344446]
-position = Vector2(109, 66)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_2ral6")
-
-[node name="Coracao128x130" type="Sprite2D" parent="." unique_id=1209227942]
-position = Vector2(66, 65)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_2ral6")
+[node name="HUD" parent="." unique_id=134351520 instance=ExtResource("3_nux70")]
