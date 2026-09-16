@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bo1wc3eupni7y" path="res://assets/sprites/fundos/fundo-cenario-soma-limpo.jpg" id="1_tkbbo"]
 [ext_resource type="PackedScene" uid="uid://d3xrakd14x85e" path="res://hud.tscn" id="3_nux70"]
+[ext_resource type="AudioStream" uid="uid://xdvonxb3ogxj" path="res://Efeitos Sonoros Som de Decepção.mp3" id="3_sdke2"]
 
 [node name="EstacaoSoma" type="Node2D" unique_id=1515939005]
 
@@ -11,3 +12,6 @@ scale = Vector2(0.45530063, 0.38374856)
 texture = ExtResource("1_tkbbo")
 
 [node name="HUD" parent="." unique_id=134351520 instance=ExtResource("3_nux70")]
+
+[node name="SomAlarme" type="AudioStreamPlayer" parent="HUD" unique_id=392268861]
+stream = ExtResource("3_sdke2")
