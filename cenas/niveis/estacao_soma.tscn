@@ -4,12 +4,27 @@
 [ext_resource type="PackedScene" uid="uid://d3xrakd14x85e" path="res://hud.tscn" id="3_nux70"]
 [ext_resource type="AudioStream" uid="uid://xdvonxb3ogxj" path="res://Efeitos Sonoros Som de Decepção.mp3" id="3_sdke2"]
 [ext_resource type="Texture2D" uid="uid://ceburdvfyou2k" path="res://assets/sprites/matematica/tileset-quadro.png" id="4_sdke2"]
+[ext_resource type="Texture2D" uid="uid://75tlfn8yd03l" path="res://assets/sprites/matematica/tileset-matematica.jpg" id="5_kj17w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sdke2"]
 texture = ExtResource("4_sdke2")
 
 [sub_resource type="TileSet" id="TileSet_qhi6c"]
 sources/1 = SubResource("TileSetAtlasSource_sdke2")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mwqq"]
+texture = ExtResource("5_kj17w")
+32:44/0 = 0
+17:55/0 = 0
+51:61/0 = 0
+52:61/0 = 0
+53:61/0 = 0
+54:62/0 = 0
+55:62/0 = 0
+56:62/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_1iice"]
+sources/0 = SubResource("TileSetAtlasSource_4mwqq")
 
 [node name="EstacaoSoma" type="Node2D" unique_id=1515939005]
 
@@ -25,3 +40,6 @@ stream = ExtResource("3_sdke2")
 
 [node name="TileMap-Quadro" type="TileMapLayer" parent="." unique_id=73189229]
 tile_set = SubResource("TileSet_qhi6c")
+
+[node name="TileMap-matematica" type="TileMapLayer" parent="." unique_id=1209281349]
+tile_set = SubResource("TileSet_1iice")
