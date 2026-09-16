@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://75tlfn8yd03l"
-path="res://.godot/imported/tileset-matematica.jpg-0c21b406af245e71ce5525649190f2e8.ctex"
+uid="uid://bw0ot4eu4hj1u"
+path="res://.godot/imported/elementos-fundo-soma.png-b5a3502c3f41e006f0f425cd484aa4ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/matematica/tileset-matematica.jpg"
-dest_files=["res://.godot/imported/tileset-matematica.jpg-0c21b406af245e71ce5525649190f2e8.ctex"]
+source_file="res://assets/sprites/matematica/elementos-fundo-soma.png"
+dest_files=["res://.godot/imported/elementos-fundo-soma.png-b5a3502c3f41e006f0f425cd484aa4ca.ctex"]
 
 [params]
 
