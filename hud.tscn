@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d3xrakd14x85e"]
 
 [ext_resource type="Script" uid="uid://cibbjjdtn40gj" path="res://hud.gd" id="1_8sq4i"]
-[ext_resource type="FontFile" path="res://Fontes/Bebas_Neue/BebasNeue-Regular.ttf" id="1_64ctp"]
+[ext_resource type="FontFile" uid="uid://dn5e2lfsl1qjb" path="res://Fontes/Bebas_Neue/BebasNeue-Regular.ttf" id="1_64ctp"]
 [ext_resource type="Texture2D" uid="uid://ch60oc4ldi5lp" path="res://assets/sprites/coracao-128x128.png" id="2_64ctp"]
 
 [node name="HUD" type="CanvasLayer" unique_id=134351520]
