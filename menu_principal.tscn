@@ -1,13 +1,113 @@
 [gd_scene format=3 uid="uid://cdnbd8iyltlma"]
 
-[node name="MenuPrincipal" type="Control" unique_id=839544187]
+[ext_resource type="Texture2D" uid="uid://cv7ixabxjk8x7" path="res://cenas/menu/menu_fundo.jpg" id="1_a6518"]
+[ext_resource type="Script" uid="uid://dderua6jii61i" path="res://menu_principal.gd" id="1_yxm4i"]
+[ext_resource type="Texture2D" uid="uid://chelmub44h5sm" path="res://cenas/menu/botao_jogar.png" id="2_yxm4i"]
+[ext_resource type="Texture2D" uid="uid://uthllj6qptrn" path="res://cenas/menu/botao_tutorial.png" id="3_b574n"]
+[ext_resource type="Texture2D" uid="uid://daq182yq7xn7d" path="res://cenas/menu/botao_opcao.png" id="4_611wp"]
+[ext_resource type="Texture2D" uid="uid://cx2wxiiyk07uj" path="res://cenas/menu/botao_sobre.png" id="5_xpioy"]
+[ext_resource type="Texture2D" uid="uid://d2sbg4hsm8v4f" path="res://cenas/menu/botao_sair.png" id="6_kni6g"]
+[ext_resource type="AudioStream" uid="uid://xdvonxb3ogxj" path="res://Efeitos Sonoros Som de Decepção.mp3" id="8_b574n"]
+
+[node name="MenuPrincipal" type="Control" unique_id=1965849041]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = 2.0
-offset_right = 8.0
-offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_yxm4i")
+
+[node name="Fundo" type="TextureRect" parent="." unique_id=1699660269]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_a6518")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="BotaoJogar" type="TextureButton" parent="." unique_id=1222236735]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 280.0
+offset_right = -934.0
+offset_bottom = -313.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_yxm4i")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="BotaoTutorial" type="TextureButton" parent="." unique_id=413719775]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 343.0
+offset_right = -928.0
+offset_bottom = -255.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_b574n")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="BotaoOpcoes" type="TextureButton" parent="." unique_id=1077045392]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = 399.0
+offset_right = -948.0
+offset_bottom = -189.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_611wp")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="BotaoSobre" type="TextureButton" parent="." unique_id=1988474270]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 462.0
+offset_right = -939.0
+offset_bottom = -131.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_xpioy")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="BotaoSair" type="TextureButton" parent="." unique_id=1331161660]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 516.0
+offset_right = -932.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6_kni6g")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MusicaFundo" type="AudioStreamPlayer" parent="." unique_id=268485195]
+stream = ExtResource("8_b574n")
+
+[connection signal="pressed" from="BotaoJogar" to="." method="_on_botao_jogar_pressed"]
+[connection signal="pressed" from="BotaoTutorial" to="." method="_on_botao_tutorial_pressed"]
+[connection signal="pressed" from="BotaoOpcoes" to="." method="_on_botao_opcoes_pressed"]
+[connection signal="pressed" from="BotaoSobre" to="." method="_on_botao_sobre_pressed"]
+[connection signal="pressed" from="BotaoSair" to="." method="_on_botao_sair_pressed"]
