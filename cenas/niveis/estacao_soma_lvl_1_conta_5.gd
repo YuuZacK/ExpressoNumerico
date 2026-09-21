@@ -3,7 +3,7 @@ extends Node2D
 @onready var hud = $HUD
 @onready var caixa_resposta = $CaixaDeResposta
 
-var resposta_correta = "4"
+var resposta_correta = "18"
 var total_contas = 6
 
 func _ready():
@@ -17,4 +17,4 @@ func _on_caixa_de_resposta_text_changed(new_text: String):
 	elif new_text == resposta_correta:
 		Global.pontos += 10
 		Global.acertos += 1
-		get_tree().change_scene_to_file("res://cenas/niveis/estacao_soma_lvl1-conta2.tscn")
+		get_tree().change_scene_to_file("res://cenas/niveis/estacao_soma_lvl1-conta6.tscn")

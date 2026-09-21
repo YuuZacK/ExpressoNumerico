@@ -6,7 +6,8 @@ func _ready():
 
 func _on_botao_jogar_pressed():
 	print("Iniciando o jogo principal...")
-	# get_tree().change_scene_to_file("res://cenas/niveis/seu_nivel_principal.tscn")
+	# Caminho ajustado para a primeira conta selecionada
+	get_tree().change_scene_to_file("res://cenas/niveis/estacao_soma_lvl1.tscn")
 
 func _on_botao_tutorial_pressed():
 	print("Carregando o tutorial...")

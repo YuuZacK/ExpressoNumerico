@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dmsmlrn7ohbhm"]
+
+[ext_resource type="Script" uid="uid://gjdn0n12n8ts" path="res://cenas/niveis/tela_vitoria.gd" id="1_6guih"]
+
+[node name="TelaVitoria" type="Control" unique_id=605129087]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6guih")
+
+[node name="Label" type="Label" parent="." unique_id=141855804]
+layout_mode = 0
+offset_left = 309.0
+offset_top = 31.0
+offset_right = 906.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.08235294, 1, 0.21960784, 1)
+theme_override_font_sizes/font_size = 50
+text = "Parabéns! O trem partiu!"
+
+[node name="TextoPontuacao" type="Label" parent="." unique_id=121462823]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.063
+offset_left = 436.0
+offset_top = 219.0
+offset_right = 677.68
+offset_bottom = 338.176
+
+[node name="BotaoVoltar" type="Button" parent="." unique_id=1963679881]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 513.0
+offset_right = 778.0
+offset_bottom = 616.0
+theme_override_font_sizes/font_size = 40
+text = "Jogar Novamente!!!"
+
+[connection signal="pressed" from="BotaoVoltar" to="." method="_on_botao_voltar_pressed"]

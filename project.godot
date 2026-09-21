@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="ExpressoNumerico"
-run/main_scene="uid://dqy1mvbxbu48"
+run/main_scene="uid://cdnbd8iyltlma"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://cenas/personagens/icon.svg"
+
+[autoload]
+
+Global="*uid://b6jkyfmpa2nmy"
 
 [display]
 

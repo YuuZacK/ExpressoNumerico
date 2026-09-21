@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bqbor6f303gub"]
 
-[ext_resource type="Script" uid="uid://cg7n3kkjppjgo" path="res://cenas/niveis/estacao_soma_lvl_1.gd" id="1_mrej5"]
+[ext_resource type="Script" uid="uid://b7xxbb85n8x78" path="res://cenas/niveis/estacao_soma_lvl_1_conta_5.gd" id="1_mrej5"]
 [ext_resource type="Texture2D" uid="uid://bo1wc3eupni7y" path="res://assets/sprites/fundos/fundo-cenario-soma-limpo.jpg" id="2_nilvg"]
 [ext_resource type="PackedScene" uid="uid://d3xrakd14x85e" path="res://hud.tscn" id="3_lcee0"]
 [ext_resource type="AudioStream" uid="uid://xdvonxb3ogxj" path="res://Efeitos Sonoros Som de Decepção.mp3" id="4_6svs4"]
