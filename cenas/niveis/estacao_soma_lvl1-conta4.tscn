@@ -10482,8 +10482,9 @@ offset_left = 944.0
 offset_top = 414.0
 offset_right = 1050.0
 offset_bottom = 478.0
-theme_override_colors/font_color = Color(0.007843138, 0, 0, 1)
+theme_override_colors/font_color = Color(0.007843138, 0, 0.87058824, 1)
 theme_override_colors/caret_color = Color(0.02297984, 0.022979887, 0.022979995, 1)
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_fx8c8")
 
 [connection signal="text_changed" from="CaixaDeResposta" to="." method="_on_caixa_de_resposta_text_changed"]
