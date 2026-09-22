@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dmsmlrn7ohbhm"]
+
+[ext_resource type="Script" uid="uid://gjdn0n12n8ts" path="res://cenas/niveis/tela_vitoria.gd" id="1_6guih"]
+[ext_resource type="Texture2D" uid="uid://d1plmyudo2s5x" path="res://assets/sprites/fundos/telavitoria.jpg" id="2_xlmn8"]
+[ext_resource type="AudioStream" uid="uid://bsrdopjm3ossc" path="res://assets/sons/Efeito sonoro (Vitória) - Efeitos Sonoros GS (youtube).mp3" id="3_bg5ml"]
+
+[node name="TelaVitoria" type="Control" unique_id=605129087]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6guih")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2132990105]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.053000003
+anchor_top = 0.194
+anchor_right = 0.053000003
+anchor_bottom = 0.194
+offset_left = -56.056004
+offset_top = -119.712006
+offset_right = 1152.944
+offset_bottom = 561.28796
+mouse_filter = 2
+texture = ExtResource("2_xlmn8")
+expand_mode = 1
+
+[node name="TextoPontuacao" type="Label" parent="." unique_id=121462823]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.063
+offset_left = 343.0
+offset_top = 387.0
+offset_right = 390.68
+offset_bottom = 461.176
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1457217027]
+stream = ExtResource("3_bg5ml")
+autoplay = true
+
+[node name="BotaoVoltar" type="Button" parent="." unique_id=1963679881]
+process_mode = 3
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 0
+offset_left = 98.0
+offset_top = 523.0
+offset_right = 248.0
+offset_bottom = 603.0
+localize_numeral_system = false
+theme_override_font_sizes/font_size = 40
+flat = true
+
+[connection signal="pressed" from="BotaoVoltar" to="." method="_on_botao_voltar_pressed"]
