@@ -35,14 +35,14 @@ offset_right = 826.0
 offset_bottom = 339.0
 flat = true
 
-[node name="BotaoMenuPrincipal" type="Button" parent="TextureRect/BotaoTentarNovamente" unique_id=475905008]
+[node name="BotaoMenuPrincipal" type="Button" parent="TextureRect" unique_id=475905008]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 28.0
-offset_top = 132.0
-offset_right = 384.0
-offset_bottom = 155.0
+offset_left = 401.0
+offset_top = 375.0
+offset_right = 757.0
+offset_bottom = 398.0
 grow_vertical = 2
 flat = true
 
@@ -51,4 +51,4 @@ stream = ExtResource("3_qid2u")
 autoplay = true
 
 [connection signal="pressed" from="TextureRect/BotaoTentarNovamente" to="." method="_on_botao_tentar_novamente_pressed"]
-[connection signal="pressed" from="TextureRect/BotaoTentarNovamente/BotaoMenuPrincipal" to="." method="_on_botao_menu_principal_pressed"]
+[connection signal="pressed" from="TextureRect/BotaoMenuPrincipal" to="." method="_on_botao_menu_principal_pressed"]
