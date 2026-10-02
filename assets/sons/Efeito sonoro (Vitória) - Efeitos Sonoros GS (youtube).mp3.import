@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bsrdopjm3ossc"
+path="res://.godot/imported/Efeito sonoro (Vitória) - Efeitos Sonoros GS (youtube).mp3-91542d4b4f9eca8958509ce25c31dabd.mp3str"
+
+[deps]
+
+source_file="res://assets/sons/Efeito sonoro (Vitória) - Efeitos Sonoros GS (youtube).mp3"
+dest_files=["res://.godot/imported/Efeito sonoro (Vitória) - Efeitos Sonoros GS (youtube).mp3-91542d4b4f9eca8958509ce25c31dabd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

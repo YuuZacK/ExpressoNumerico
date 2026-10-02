@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bkqgh3eia5amt"]
+
+[ext_resource type="Texture2D" uid="uid://bstmjkhjhaci4" path="res://assets/sprites/fundos/fundo-cenario-subtracao.png" id="1_pc0nu"]
+
+[node name="EstacaoSubtracao" type="Node2D" unique_id=1804869117]
+
+[node name="FundoCenarioSubtracao" type="Sprite2D" parent="." unique_id=1794999106]
+position = Vector2(576.5, 326)
+scale = Vector2(0.7519532, 0.64453125)
+texture = ExtResource("1_pc0nu")
