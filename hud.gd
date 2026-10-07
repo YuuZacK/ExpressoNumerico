@@ -66,6 +66,7 @@ func atualizar_acertos(acertos: int, total: int):
 	texto_acertos.text = str(acertos) + "/" + str(total)
 
 func atualizar_tempo(tempo_novo: float):
+	tempo_atual = tempo_novo
 	barra_tempo.value = tempo_novo
 	
 func atualizar_vidas():
