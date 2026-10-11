@@ -3,10 +3,13 @@
 [ext_resource type="Script" uid="uid://dderua6jii61i" path="res://cenas/menu/menu_principal.gd" id="1_6bqp4"]
 [ext_resource type="Texture2D" uid="uid://cv7ixabxjk8x7" path="res://cenas/menu/menu_fundo.jpg" id="2_cv3r0"]
 [ext_resource type="Texture2D" uid="uid://chelmub44h5sm" path="res://cenas/menu/botao_jogar.png" id="3_7n7d4"]
+[ext_resource type="Texture2D" uid="uid://62fl663adtdv" path="res://cenas/menu/botao_jogar_hover.png" id="4_7n7d4"]
 [ext_resource type="Texture2D" uid="uid://uthllj6qptrn" path="res://cenas/menu/botao_tutorial.png" id="4_ssmfo"]
 [ext_resource type="Texture2D" uid="uid://daq182yq7xn7d" path="res://cenas/menu/botao_opcao.png" id="5_4bw57"]
+[ext_resource type="Texture2D" uid="uid://dw3l2etgkg4d5" path="res://cenas/menu/botao_tutorial_hover.png" id="6_ssmfo"]
 [ext_resource type="Texture2D" uid="uid://cx2wxiiyk07uj" path="res://cenas/menu/botao_sobre.png" id="6_u3aj4"]
 [ext_resource type="Texture2D" uid="uid://d2sbg4hsm8v4f" path="res://cenas/menu/botao_sair.png" id="7_vv7w7"]
+[ext_resource type="Texture2D" uid="uid://cn41es73os5hi" path="res://cenas/menu/botao_sair_hover.png" id="8_cv3r0"]
 [ext_resource type="AudioStream" uid="uid://6ltimbufq5uj" path="res://assets/sons/EfeitoSonoroTrem.mp3" id="8_e001e"]
 
 [node name="MenuPrincipal" type="Control" unique_id=1965849041]
@@ -41,6 +44,7 @@ offset_bottom = -313.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("3_7n7d4")
+texture_hover = ExtResource("4_7n7d4")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -56,6 +60,7 @@ offset_bottom = -255.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("4_ssmfo")
+texture_hover = ExtResource("6_ssmfo")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -100,6 +105,7 @@ offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("7_vv7w7")
+texture_hover = ExtResource("8_cv3r0")
 ignore_texture_size = true
 stretch_mode = 5
 
