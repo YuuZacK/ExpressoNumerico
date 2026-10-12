@@ -20,6 +20,23 @@ extends Node2D
 		"nivel": 3,
 		"calculo": "1-3",
 		"resultado": 2
+	},
+	{ 
+		"nivel": 4,
+		"calculo": "5-2",
+		"resultado": 3
+	},
+	
+	{
+	"nivel": 5,
+	"calculo": "6-2",
+	"resultado": 4
+	},
+	
+	{
+ 	"nivel": 6,
+	"calculo": "7-2",
+	"resultado": 5
 	}
 ]
 

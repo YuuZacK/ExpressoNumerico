@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://xdvonxb3ogxj" path="res://Efeitos Sonoros Som de Decepção.mp3" id="3_bwr5f"]
 [ext_resource type="Texture2D" uid="uid://ceburdvfyou2k" path="res://assets/sprites/matematica/tileset-quadro.png" id="4_mj3gm"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v60al"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0leja"]
 texture = ExtResource("4_mj3gm")
 2:43/0 = 0
 2:44/0 = 0
@@ -3640,7 +3640,7 @@ texture = ExtResource("4_mj3gm")
 33:26/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_d87ld"]
-sources/1 = SubResource("TileSetAtlasSource_v60al")
+sources/1 = SubResource("TileSetAtlasSource_0leja")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qicf0"]
 bg_color = Color(1, 1, 1, 1)

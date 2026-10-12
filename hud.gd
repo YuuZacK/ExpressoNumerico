@@ -82,3 +82,7 @@ func atualizar_vidas():
 		vida2.show()
 	if Global.vidas == 3:
 		vida3.show()
+
+
+func _on_caixa_de_resposta_text_changed(new_text: String) -> void:
+	pass # Replace with function body.
