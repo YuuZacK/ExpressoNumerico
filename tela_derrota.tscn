@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://c0xxufq2ea4qg" path="res://tela_derrota.gd" id="1_kkw63"]
 [ext_resource type="Texture2D" uid="uid://c7gb7f4qyxlp7" path="res://assets/sprites/fundos/teladerrota.jpg" id="2_wodfv"]
+[ext_resource type="Texture2D" uid="uid://df8lgk70b3rm3" path="res://assets/botoes/BotaoTenteNovamente.png" id="3_doifv"]
 [ext_resource type="AudioStream" uid="uid://xdvonxb3ogxj" path="res://Efeitos Sonoros Som de Decepção.mp3" id="3_qid2u"]
+[ext_resource type="Texture2D" uid="uid://bmegd0r4eitre" path="res://assets/hovers/BotaoTenteNovamenteHover.png" id="4_0fjxt"]
 
 [node name="TelaDerrota" type="Control" unique_id=213243412]
 layout_mode = 3
@@ -27,15 +29,7 @@ expand_mode = 1
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="BotaoTentarNovamente" type="Button" parent="TextureRect" unique_id=1246451136]
-layout_mode = 0
-offset_left = 373.0
-offset_top = 243.0
-offset_right = 826.0
-offset_bottom = 339.0
-flat = true
-
-[node name="BotaoMenuPrincipal" type="Button" parent="TextureRect" unique_id=475905008]
+[node name="BotaoMenuPrincipal" type="TextureButton" parent="TextureRect" unique_id=1534182259]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -44,11 +38,26 @@ offset_top = 375.0
 offset_right = 757.0
 offset_bottom = 398.0
 grow_vertical = 2
-flat = true
+
+[node name="BotaoTenteNovamente" type="TextureButton" parent="TextureRect" unique_id=1617396560]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 382.0
+offset_top = 233.0
+offset_right = -381.0
+offset_bottom = -298.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_doifv")
+texture_hover = ExtResource("4_0fjxt")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2004942103]
 stream = ExtResource("3_qid2u")
 autoplay = true
 
-[connection signal="pressed" from="TextureRect/BotaoTentarNovamente" to="." method="_on_botao_tentar_novamente_pressed"]
 [connection signal="pressed" from="TextureRect/BotaoMenuPrincipal" to="." method="_on_botao_menu_principal_pressed"]
+[connection signal="pressed" from="TextureRect/BotaoTenteNovamente" to="." method="_on_botao_tente_novamente_pressed"]

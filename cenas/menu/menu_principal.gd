@@ -1,8 +1,18 @@
 extends Control
 
 func _ready():
-	# Configurações iniciais ao abrir o menu
-	pass
+	# 1. Coloca aqui o nome exato dos teus nós de botão conforme estão na árvore de cena
+	# Se os nomes forem com letra minúscula (ex: $botao_jogar), altera aqui na lista.
+	var botoes = [$BotaoJogar, $BotaoTutorial, $BotaoOpcoes, $BotaoSobre, $BotaoSair]
+	
+	# 2. O laço 'for' vai passar por cada botão da lista
+	for botao in botoes:
+		# Verifica se o botão tem uma imagem (texture_normal) para evitar erros
+		if botao.texture_normal != null:
+			var mascara = BitMap.new()
+			# Cria a máscara perfeita ignorando a parte transparente (alpha)
+			mascara.create_from_image_alpha(botao.texture_normal.get_image())
+			botao.texture_click_mask = mascara
 
 func _on_botao_jogar_pressed():
 	print("Iniciando o jogo principal...")
