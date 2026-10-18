@@ -104,7 +104,7 @@ func finalizar_fase() -> void:
 	caixa_resposta.editable = false
 	caixa_resposta.text = ""
 	caixa_calculo.text = "Parabéns!!!"
-	print("Fase de multiplicação concluída com sucesso!")
+	print("Fase de divisão concluída com sucesso!")
 
 	await get_tree().create_timer(1.2).timeout
 	if is_inside_tree():
