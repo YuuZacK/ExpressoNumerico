@@ -1,29 +1,35 @@
 extends Control
 
-@onready var texto_pontuacao = $TextoPontuacao
+# Ligando os textos da tela ao código
+@onready var valor_tempo = $ValorTempo
+@onready var valor_somas = $ValorSomas
+@onready var valor_erros = $ValorErros
+@onready var valor_pontuacao = $ValorPontuacao
 
 func _ready():
-	texto_pontuacao.text = str(Global.acertos) + "\n\n" + str(Global.pontos)
+	# 1. Mostra os acertos totais
+	valor_somas.text = str(Global.acertos)
+	
+	# 2. Mostra a pontuação total
+	valor_pontuacao.text = str(Global.pontos)
+	
+	# 3. Calcula os erros: Se o jogador começou com 3 vidas, 
+	# os erros são as vidas que ele perdeu (3 menos as vidas atuais)
+	var erros_cometidos = 3 - Global.vidas
+	valor_erros.text = str(erros_cometidos)
+	
+	# 4. Tempo Gasto (Vamos colocar um texto provisório por agora)
+	valor_tempo.text = "??s"
 
-func _on_botao_voltar_pressed():
-	print("O botao foi clicado com sucesso!")
+# --- MANTENHA AS SUAS FUNÇÕES DOS BOTÕES ABAIXO DESTA LINHA ---
+func _on_botao_jogar_novamente_pressed():
 	Global.pontos = 0
 	Global.acertos = 0
-	get_tree().change_scene_to_file("res://cenas/menu/menu_principal.tscn")
+	Global.vidas = 3
+	get_tree().change_scene_to_file("res://cenas/niveis/estacao_soma_lvl1.tscn")
 
-
-func _on_botao_jogar_novamente_pressed() -> void:
-	print("Botão Jogar Novamente clicado!")
+func _on_botao_menu_principal_pressed():
 	Global.pontos = 0
 	Global.acertos = 0
-	# Coloque aqui o caminho da fase do jogo ao invés do menu principal
+	Global.vidas = 3
 	get_tree().change_scene_to_file("res://cenas/menu/menu_principal.tscn")
-
-
-func _on_botao_jogar_novamente_mouse_entered() -> void:
-	$BotaoJogarNovamente.modulate = Color(0.7, 0.7, 0.7)
-	$BotaoJogarNovamente.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-
-
-func _on_botao_jogar_novamente_mouse_exited() -> void:
-	$BotaoJogarNovamente.modulate = Color(1.0, 1.0, 1.0)

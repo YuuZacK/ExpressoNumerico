@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dmsmlrn7ohbhm"]
 
 [ext_resource type="Script" uid="uid://gjdn0n12n8ts" path="res://cenas/niveis/tela_vitoria.gd" id="1_6guih"]
-[ext_resource type="Texture2D" uid="uid://d1plmyudo2s5x" path="res://assets/sprites/fundos/telavitoria.jpg" id="2_xlmn8"]
+[ext_resource type="Texture2D" uid="uid://bhco3yewhxtr2" path="res://assets/sprites/fundos/tela_vitoria_ok.jpg" id="2_j2usy"]
 [ext_resource type="AudioStream" uid="uid://bsrdopjm3ossc" path="res://assets/sons/Efeito sonoro (Vitória) - Efeitos Sonoros GS (youtube).mp3" id="3_bg5ml"]
 [ext_resource type="Texture2D" uid="uid://dphdny5bnhrjo" path="res://assets/sprites/fundos/botaojogarnovamentetelavitoria.png" id="4_j2usy"]
 [ext_resource type="Texture2D" uid="uid://mdxh7fid0utg" path="res://assets/sprites/fundos/botaojogarnovamentetelavitoriaselecionado.png" id="5_j2usy"]
@@ -27,18 +27,52 @@ offset_top = -119.712006
 offset_right = 1152.944
 offset_bottom = 561.28796
 mouse_filter = 2
-texture = ExtResource("2_xlmn8")
+texture = ExtResource("2_j2usy")
 expand_mode = 1
 
-[node name="TextoPontuacao" type="Label" parent="." unique_id=121462823]
+[node name="ValorPontuacao" type="Label" parent="." unique_id=121462823]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.035
 anchor_bottom = 0.063
-offset_left = 343.0
-offset_top = 387.0
-offset_right = 390.68
-offset_bottom = 461.176
+offset_left = 344.0
+offset_top = 488.0
+offset_right = 397.68
+offset_bottom = 470.176
+theme_override_colors/font_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
+
+[node name="ValorTempo" type="Label" parent="." unique_id=1076365232]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.063
+offset_left = 354.0
+offset_top = 376.0
+offset_right = 374.68
+offset_bottom = 358.176
+theme_override_colors/font_color = Color(0.017020682, 0.017020678, 0.017020678, 1)
+
+[node name="ValorSomas" type="Label" parent="." unique_id=1453583103]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.063
+offset_left = 350.0
+offset_top = 413.0
+offset_right = 382.68
+offset_bottom = 395.176
+theme_override_colors/font_color = Color(0.0142752165, 0.014275218, 0.014275218, 1)
+
+[node name="ValorErros" type="Label" parent="." unique_id=1266741361]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.063
+offset_left = 350.0
+offset_top = 437.0
+offset_right = 380.68
+offset_bottom = 421.176
+theme_override_colors/font_color = Color(0.0067570917, 0.060838416, 0.04774309, 1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1457217027]
 stream = ExtResource("3_bg5ml")
@@ -61,10 +95,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 53.0
-offset_top = 519.0
-offset_right = -900.0
-offset_bottom = -53.0
+offset_left = 33.0
+offset_top = 542.0
+offset_right = -903.0
+offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("4_j2usy")
