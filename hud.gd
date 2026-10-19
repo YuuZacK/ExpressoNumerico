@@ -8,8 +8,9 @@ signal tempo_esgotado
 @onready var texto_acertos = $TextoAcertos
 @onready var texto_pontos = $TextoPontos
 @onready var som_alarme = $SomAlarme 
+@onready var texto_tempo = $TextoTempo # <-- AQUI ESTÁ A NOVA VARIÁVEL DO CRONÓMETRO
 
-# NOVAS VARIÁVEIS PARA AS VIDAS (buscando dentro da CaixaDeVidas):
+# Variáveis para as vidas (buscando dentro da CaixaDeVidas):
 @onready var vida1 = $CaixaDeVidas/Vida1
 @onready var vida2 = $CaixaDeVidas/Vida2
 @onready var vida3 = $CaixaDeVidas/Vida3
@@ -66,8 +67,9 @@ func atualizar_acertos(acertos: int, total: int):
 	texto_acertos.text = str(acertos) + "/" + str(total)
 
 func atualizar_tempo(tempo_novo: float):
-	tempo_atual = tempo_novo
 	barra_tempo.value = tempo_novo
+	# Atualiza o texto com o número inteiro e a letra "s" de segundos
+	texto_tempo.text = str(int(tempo_novo)) + "s"
 	
 func atualizar_vidas():
 	# Esconde todas primeiro por segurança
@@ -82,7 +84,3 @@ func atualizar_vidas():
 		vida2.show()
 	if Global.vidas == 3:
 		vida3.show()
-
-
-func _on_caixa_de_resposta_text_changed(new_text: String) -> void:
-	pass # Replace with function body.
