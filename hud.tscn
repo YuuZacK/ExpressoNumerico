@@ -12,9 +12,9 @@ anchors_preset = -1
 anchor_right = 0.058000002
 anchor_bottom = 0.002
 offset_left = 429.0
-offset_top = 48.0
+offset_top = 63.0
 offset_right = 737.184
-offset_bottom = 79.704
+offset_bottom = 94.704
 value = 100.0
 show_percentage = false
 
@@ -25,9 +25,9 @@ anchor_top = 0.07700001
 anchor_right = 0.832
 anchor_bottom = 0.17400001
 offset_left = -7.2400513
-offset_top = 2.1039963
+offset_top = 9.103996
 offset_right = -5.4639893
-offset_bottom = 28.247993
+offset_bottom = 35.247993
 theme_override_colors/font_color = Color(0.03190968, 0.0841428, 0.017608875, 1)
 theme_override_fonts/font = ExtResource("1_64ctp")
 theme_override_font_sizes/font_size = 35
@@ -42,9 +42,9 @@ anchor_top = 0.083000004
 anchor_right = 0.94400007
 anchor_bottom = 0.132
 offset_left = 11.303955
-offset_top = 3.2159958
+offset_top = 6.215996
 offset_right = 14.511963
-offset_bottom = 60.463997
+offset_bottom = 63.463997
 theme_override_colors/font_color = Color(0.032967977, 0.032967992, 0.03296798, 1)
 theme_override_fonts/font = ExtResource("1_64ctp")
 theme_override_font_sizes/font_size = 35
@@ -54,9 +54,9 @@ horizontal_alignment = 1
 
 [node name="CaixaDeVidas" type="HBoxContainer" parent="." unique_id=132220806]
 offset_left = 41.0
-offset_top = 46.0
+offset_top = 49.0
 offset_right = 169.0
-offset_bottom = 86.0
+offset_bottom = 89.0
 
 [node name="Vida1" type="TextureRect" parent="CaixaDeVidas" unique_id=894211388]
 custom_minimum_size = Vector2(40, 40)
@@ -81,9 +81,9 @@ stretch_mode = 4
 
 [node name="TextoTempo" type="Label" parent="." unique_id=1685393002]
 offset_left = 317.0
-offset_top = 41.0
+offset_top = 44.0
 offset_right = 387.0
-offset_bottom = 83.0
+offset_bottom = 93.0
 theme_override_colors/font_color = Color(0.015067441, 0.027561046, 0.0018345141, 1)
 theme_override_font_sizes/font_size = 35
 text = "100"

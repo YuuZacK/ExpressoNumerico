@@ -5,47 +5,31 @@ extends Node2D
 @onready var caixa_calculo = $CaixaCalculo # Referência ao Label da conta
 
 # Lista de níveis exposta no Inspetor do Godot 4
-@export var niveis: Array[Dictionary] = [
-	{
-		"nivel": 1,
-		"calculo": "1-1",
-		"resultado": 0
-	},
-	{
-		"nivel": 2,
-		"calculo": "2-3",
-		"resultado": 1
-	},
-	{
-		"nivel": 3,
-		"calculo": "1-3",
-		"resultado": 2
-	},
-	{ 
-		"nivel": 4,
-		"calculo": "5-2",
-		"resultado": 3
-	},
-	
-	{
-	"nivel": 5,
-	"calculo": "6-2",
-	"resultado": 4
-	},
-	
-	{
- 	"nivel": 6,
-	"calculo": "7-2",
-	"resultado": 5
-	}
-]
+@export var max_niveis: int =5
+@export var niveis: Array[Dictionary] = []
 
 var indice_atual: int = 0
 var nivel_atual: Dictionary = {}
 var aguardando_transicao: bool = false
 
 func _ready() -> void:
+	carregar_perguntas()
 	carregar_nivel_atual()
+
+func carregar_perguntas() -> void:
+	for i in max_niveis:
+		var valor1: int = randi_range(0,10)
+		var valor2: int = randi_range(0,10)
+		
+		var texto_calculo: String = "{v1} - {v2}".format({"v1": valor1, "v2": valor2})
+		var conta_resultado: int = valor1 - valor2
+		
+		niveis.append({
+			"nivel": i + 1,
+			"calculo": texto_calculo,
+			"resultado": conta_resultado
+		})
+	print(niveis)
 
 ## Carrega os dados do nível atual e atualiza a interface
 func carregar_nivel_atual() -> void:
