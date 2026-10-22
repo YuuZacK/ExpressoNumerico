@@ -22,9 +22,9 @@ func _ready() -> void:
 func carregar_perguntas() -> void:
 	for i in max_niveis:
 		var valor1: int = randi_range(0,10)
-		var valor2: int = randi_range(0,10)
+		var valor2: int = randi_range(1,10)
 		
-		var texto_calculo: String = "{v1} / {v2}".format({"v1": valor1, "v2": valor2})
+		var texto_calculo: String = "{v1} ÷ {v2}".format({"v1": valor1, "v2": valor2})
 		var conta_resultado: int = valor1 / valor2
 		
 		niveis.append({
