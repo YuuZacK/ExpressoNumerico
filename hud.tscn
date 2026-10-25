@@ -11,10 +11,10 @@ script = ExtResource("1_8sq4i")
 anchors_preset = -1
 anchor_right = 0.058000002
 anchor_bottom = 0.002
-offset_left = 429.0
-offset_top = 63.0
-offset_right = 737.184
-offset_bottom = 94.704
+offset_left = 424.0
+offset_top = 46.0
+offset_right = 740.184
+offset_bottom = 82.704
 value = 100.0
 show_percentage = false
 

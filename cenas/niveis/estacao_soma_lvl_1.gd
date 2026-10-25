@@ -19,7 +19,11 @@ func _on_caixa_de_resposta_text_changed(new_text: String):
 		Global.pontos += 10
 		Global.acertos += 1
 		
-		# Faz o código "esperar" meio segundo (1.05) para a criança ver o número
+		# Calcula o tempo usado nesta conta e soma no valor global
+		var tempo_usado = hud.tempo_maximo - hud.tempo_atual
+		Global.tempo_gasto += int(tempo_usado)
+		
+		# Faz o código "esperar" 1 segundo para a criança ver o número
 		await get_tree().create_timer(1.0).timeout
 		
 		get_tree().change_scene_to_file("res://cenas/niveis/estacao_soma_lvl1-conta2.tscn")

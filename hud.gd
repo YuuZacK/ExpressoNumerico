@@ -16,8 +16,8 @@ signal tempo_esgotado
 @onready var vida3 = $CaixaDeVidas/Vida3
 
 # Variáveis para controlar o cronómetro
-var tempo_maximo = 100.0
-var tempo_atual = 100.0
+var tempo_maximo = 30.0
+var tempo_atual = 30.0
 
 func _ready():
 	# Valores iniciais: coloca os pontos a zero e enche a barra
@@ -32,7 +32,7 @@ func _ready():
 func _process(delta):
 	# Só calculamos a queda de tempo se ele ainda for maior que zero
 	if tempo_atual > 0:
-		tempo_atual = tempo_atual - (delta * 10) 
+		tempo_atual = tempo_atual - delta 
 		
 		# No exato momento em que o tempo chegar a zero (ou ficar negativo)...
 		if tempo_atual <= 0:
