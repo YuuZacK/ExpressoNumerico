@@ -78,6 +78,9 @@ func _on_caixa_de_resposta_text_changed(new_text: String) -> void:
 		await get_tree().create_timer(1.0).timeout
 		if not is_inside_tree():
 			return
+			
+		# Reinicia o tempo total para a próxima conta
+		hud.tempo_atual = hud.tempo_maximo
 
 		indice_atual += 1
 		carregar_nivel_atual()

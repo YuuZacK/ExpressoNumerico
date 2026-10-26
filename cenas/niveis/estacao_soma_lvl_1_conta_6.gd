@@ -25,4 +25,7 @@ func _on_caixa_de_resposta_text_changed(new_text: String):
 		# Faz o código "esperar" 1 segundo para a criança ver o número
 		await get_tree().create_timer(1.0).timeout
 		
+		# Grava o trilho para a próxima fase antes de abrir a vitória
+		Global.proxima_estacao = "res://cenas/niveis/estacao-subtracao.tscn"
+		
 		get_tree().change_scene_to_file("res://cenas/niveis/tela_vitoria.tscn")

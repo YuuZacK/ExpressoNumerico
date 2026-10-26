@@ -21,13 +21,19 @@ func _ready():
 	valor_tempo.text = str(Global.tempo_gasto) + "s"
 
 func _on_botao_jogar_novamente_pressed():
-	Global.pontos = 0
-	Global.acertos = 0
-	Global.vidas = 3
-	Global.tempo_gasto = 0
-	get_tree().change_scene_to_file("res://cenas/niveis/estacao_soma_lvl1.tscn")
+	# Verifica se existe um trilho salvo para a próxima fase
+	if Global.proxima_estacao != "":
+		get_tree().change_scene_to_file(Global.proxima_estacao)
+	else:
+		# Se não houver próxima estação, volta ao menu e limpa o progresso
+		Global.pontos = 0
+		Global.acertos = 0
+		Global.vidas = 3
+		Global.tempo_gasto = 0
+		get_tree().change_scene_to_file("res://cenas/menu/menu_principal.tscn")
 
 func _on_botao_menu_principal_pressed():
+	# Zera tudo ao abandonar a partida pelo menu
 	Global.pontos = 0
 	Global.acertos = 0
 	Global.vidas = 3

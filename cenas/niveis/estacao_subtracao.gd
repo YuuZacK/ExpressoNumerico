@@ -65,7 +65,7 @@ func _on_caixa_de_resposta_text_changed(new_text: String) -> void:
 		
 		# Pausa de 1 segundo para visualização da resposta
 		await get_tree().create_timer(1.0).timeout
-		hud.atualizar_tempo(99.9) # Mantido conforme seu script original
+		hud.tempo_atual = hud.tempo_maximo
 		
 		# Avança para a próxima conta
 		indice_atual += 1
@@ -77,5 +77,8 @@ func finalizar_fase() -> void:
 	caixa_resposta.text = ""
 	caixa_calculo.text = "Parabéns!!!"
 	print("Fase concluída com sucesso!")
+	
+	# Grava o trilho para a próxima fase antes de abrir a vitória
+	Global.proxima_estacao = "res://cenas/niveis/estacao-multiplicacao.tscn"
 	
 	get_tree().change_scene_to_file("res://cenas/niveis/tela_vitoria.tscn")

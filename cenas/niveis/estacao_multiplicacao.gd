@@ -20,7 +20,6 @@ func _ready() -> void:
 
 func carregar_perguntas() -> void:
 	for i in max_niveis:
-		# Na multiplicação, podemos usar números de 1 a 10 livremente
 		var valor1: int = randi_range(1, 10)
 		var valor2: int = randi_range(1, 10)
 		
@@ -53,13 +52,11 @@ func _on_caixa_de_resposta_text_changed(new_text: String) -> void:
 	if aguardando_transicao:
 		return
 
-	# Filtro para números inteiros
 	if not new_text.is_valid_int() and new_text != "":
 		caixa_resposta.text = new_text.left(-1)
 		caixa_resposta.caret_column = caixa_resposta.text.length()
 		return
 
-	# Validação da resposta
 	if new_text != "" and new_text.to_int() == int(nivel_atual["resultado"]):
 		aguardando_transicao = true
 		caixa_resposta.editable = false
@@ -67,17 +64,17 @@ func _on_caixa_de_resposta_text_changed(new_text: String) -> void:
 		Global.pontos += 10
 		Global.acertos += 1
 
-		# Calcula o tempo usado nesta conta e soma no valor global
 		var tempo_usado = hud.tempo_maximo - hud.tempo_atual
 		Global.tempo_gasto += int(tempo_usado)
 
 		hud.atualizar_pontos(Global.pontos)
 		hud.atualizar_acertos(Global.acertos, niveis.size())
 
-		# Pausa de 1 segundo para feedback visual
 		await get_tree().create_timer(1.0).timeout
 		if not is_inside_tree():
 			return
+			
+		hud.tempo_atual = hud.tempo_maximo
 
 		indice_atual += 1
 		carregar_nivel_atual()
@@ -87,7 +84,8 @@ func finalizar_fase() -> void:
 	caixa_resposta.text = ""
 	caixa_calculo.text = "Parabéns!!!"
 	print("Fase de multiplicação concluída com sucesso!")
+	
+	# Grava o trilho para a próxima fase (Divisão) antes de abrir a vitória
+	Global.proxima_estacao = "res://cenas/niveis/estacao-divisao.tscn"
 
-	await get_tree().create_timer(1.2).timeout
-	if is_inside_tree():
-		get_tree().change_scene_to_file("res://cenas/niveis/tela_vitoria.tscn")
+	get_tree().change_scene_to_file("res://cenas/niveis/tela_vitoria.tscn")
