@@ -4,13 +4,12 @@ extends Node2D
 @onready var caixa_resposta = $CaixaDeResposta
 @onready var caixa_calculo = $CaixaCalculo
 
-@export var max_niveis: int = 5
+@export var max_niveis: int = 6
 @export var niveis: Array[Dictionary] = []
 
 var indice_atual: int = 0
 var nivel_atual: Dictionary = {}
 var aguardando_transicao: bool = false
-
 
 func _ready() -> void:
 	if caixa_resposta and not caixa_resposta.text_changed.is_connected(_on_caixa_de_resposta_text_changed):
@@ -21,8 +20,9 @@ func _ready() -> void:
 
 func carregar_perguntas() -> void:
 	for i in max_niveis:
-		var valor1: int = randi_range(0,10)
-		var valor2: int = randi_range(0,10)
+		# Na multiplicação, podemos usar números de 1 a 10 livremente
+		var valor1: int = randi_range(1, 10)
+		var valor2: int = randi_range(1, 10)
 		
 		var texto_calculo: String = "{v1} x {v2}".format({"v1": valor1, "v2": valor2})
 		var conta_resultado: int = valor1 * valor2
@@ -46,12 +46,8 @@ func carregar_nivel_atual() -> void:
 
 		hud.atualizar_pontos(Global.pontos)
 		hud.atualizar_acertos(Global.acertos, niveis.size())
-		
-		# Reinicia o tempo para 99.9 ao entrar na fase e a cada nova conta
-		hud.atualizar_tempo(99.9)
 	else:
 		finalizar_fase()
-
 
 func _on_caixa_de_resposta_text_changed(new_text: String) -> void:
 	if aguardando_transicao:
@@ -71,6 +67,10 @@ func _on_caixa_de_resposta_text_changed(new_text: String) -> void:
 		Global.pontos += 10
 		Global.acertos += 1
 
+		# Calcula o tempo usado nesta conta e soma no valor global
+		var tempo_usado = hud.tempo_maximo - hud.tempo_atual
+		Global.tempo_gasto += int(tempo_usado)
+
 		hud.atualizar_pontos(Global.pontos)
 		hud.atualizar_acertos(Global.acertos, niveis.size())
 
@@ -79,18 +79,14 @@ func _on_caixa_de_resposta_text_changed(new_text: String) -> void:
 		if not is_inside_tree():
 			return
 
-		# Reseta o tempo no HUD antes de passar para a próxima conta
-		hud.atualizar_tempo(99.9)
-
 		indice_atual += 1
 		carregar_nivel_atual()
-
 
 func finalizar_fase() -> void:
 	caixa_resposta.editable = false
 	caixa_resposta.text = ""
 	caixa_calculo.text = "Parabéns!!!"
-	print("Fase de divisão concluída com sucesso!")
+	print("Fase de multiplicação concluída com sucesso!")
 
 	await get_tree().create_timer(1.2).timeout
 	if is_inside_tree():

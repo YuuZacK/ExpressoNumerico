@@ -56,12 +56,16 @@ func _on_caixa_de_resposta_text_changed(new_text: String) -> void:
 		Global.pontos += 10
 		Global.acertos += 1
 		
+		# Calcula o tempo usado nesta conta dinâmica e soma no valor global
+		var tempo_usado = hud.tempo_maximo - hud.tempo_atual
+		Global.tempo_gasto += int(tempo_usado)
+		
 		hud.atualizar_pontos(Global.pontos)
 		hud.atualizar_acertos(Global.acertos, total_contas)
 		
 		# Pausa de 1 segundo para visualização da resposta
 		await get_tree().create_timer(1.0).timeout
-		hud.atualizar_tempo(99.9)
+		hud.atualizar_tempo(99.9) # Mantido conforme seu script original
 		
 		# Avança para a próxima conta
 		indice_atual += 1
