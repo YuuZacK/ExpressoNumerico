@@ -5,6 +5,8 @@
 [ext_resource type="AudioStream" uid="uid://bsrdopjm3ossc" path="res://assets/sons/Efeito sonoro (Vitória) - Efeitos Sonoros GS (youtube).mp3" id="3_bg5ml"]
 [ext_resource type="Texture2D" uid="uid://dphdny5bnhrjo" path="res://assets/sprites/fundos/botaojogarnovamentetelavitoria.png" id="4_j2usy"]
 [ext_resource type="Texture2D" uid="uid://mdxh7fid0utg" path="res://assets/sprites/fundos/botaojogarnovamentetelavitoriaselecionado.png" id="5_j2usy"]
+[ext_resource type="Texture2D" uid="uid://53epeptnvbt2" path="res://assets/botoes/BotaoMenuPrincipalTelaVitoria.png" id="6_wlp2k"]
+[ext_resource type="Texture2D" uid="uid://du2hk2jsml0w0" path="res://assets/hovers/BotaoMenuPrincipalTelaVitoriaHover.png" id="7_ema8b"]
 
 [node name="TelaVitoria" type="Control" unique_id=605129087]
 layout_mode = 3
@@ -103,6 +105,17 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("4_j2usy")
 texture_hover = ExtResource("5_j2usy")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1466308011]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 544.0
+offset_right = 490.0
+offset_bottom = 612.0
+texture_normal = ExtResource("6_wlp2k")
+texture_hover = ExtResource("7_ema8b")
 ignore_texture_size = true
 stretch_mode = 5
 
