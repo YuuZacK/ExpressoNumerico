@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c7ok5g6aikh8p"]
+
+[ext_resource type="Script" uid="uid://bm5uofxjyvkmg" path="res://cenas/niveis/tela_desembarque.gd" id="1_2tfyd"]
+[ext_resource type="Texture2D" uid="uid://buge3yewhs63d" path="res://assets/sprites/fundos/cena-final-desembarque.png" id="1_54fbl"]
+
+[node name="TelaDesembarque" type="Control" unique_id=189808023]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2tfyd")
+
+[node name="Fundo" type="TextureRect" parent="." unique_id=847900866]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_54fbl")
+expand_mode = 1
+stretch_mode = 6

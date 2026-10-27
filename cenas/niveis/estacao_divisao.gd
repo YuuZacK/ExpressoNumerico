@@ -93,4 +93,4 @@ func finalizar_fase() -> void:
 
 	await get_tree().create_timer(1.2).timeout
 	if is_inside_tree():
-		get_tree().change_scene_to_file("res://cenas/niveis/tela_vitoria.tscn")
+		get_tree().change_scene_to_file("res://cenas/niveis/tela_desembarque.tscn")
