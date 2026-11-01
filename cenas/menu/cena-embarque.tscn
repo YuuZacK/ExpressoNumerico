@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://j2mr5slhu8u8"]
+
+[ext_resource type="Texture2D" uid="uid://mgngovbprcjr" path="res://cenas/menu/cena embarque-soma.png" id="1_1mhv2"]
+[ext_resource type="Script" uid="uid://df0uejy0fd4qx" path="res://cenas/menu/cenaembarque.gd" id="2_fxe0b"]
+
+[node name="Control" type="Control" unique_id=1546407351]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fundo" type="TextureRect" parent="." unique_id=1076109235]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_1mhv2")
+script = ExtResource("2_fxe0b")
+
+[node name="BotaoMenuPrincipal" type="Button" parent="." unique_id=2026772348]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="pressed" from="BotaoMenuPrincipal" to="Fundo" method="_on_botao_menu_principal_pressed"]
+[connection signal="toggled" from="BotaoMenuPrincipal" to="Fundo" method="_on_botao_menu_principal_toggled"]
