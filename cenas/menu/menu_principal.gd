@@ -40,16 +40,19 @@ func _ao_tirar_o_rato(botao_focado):
 func _on_botao_jogar_pressed():
 	print("Iniciando o jogo principal...")
 	get_tree().change_scene_to_file("res://cenas/niveis/estacao_soma_lvl1.tscn")
-
+	
 func _on_botao_tutorial_pressed():
 	print("Carregando o tutorial...")
 	get_tree().change_scene_to_file("res://cenas/niveis/estacao_soma_lvl0.tscn")
 
 func _on_botao_opcoes_pressed():
 	print("Abrindo menu de opções...")
+	get_tree().change_scene_to_file("res://cenas/niveis/cena_créditos.tscn")
+	
 
 func _on_botao_sobre_pressed():
 	print("Abrindo créditos...")
+	
 
 func _on_botao_sair_pressed():
 	print("Fechando o jogo...")

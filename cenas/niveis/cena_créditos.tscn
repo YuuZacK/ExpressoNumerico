@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://drvr2acjc7x1a"]
+
+[ext_resource type="Texture2D" uid="uid://duupfpp6s6bu0" path="res://assets/sprites/fundos/img-créditos.jpg" id="1_x7dba"]
+
+[node name="CenaCréditos" type="Control" unique_id=184535996]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_right = 2.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fundo" type="TextureRect" parent="." unique_id=1345168894]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 1150.0
+offset_bottom = 659.0
+texture = ExtResource("1_x7dba")
+expand_mode = 1
