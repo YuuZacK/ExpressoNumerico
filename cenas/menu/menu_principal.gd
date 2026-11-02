@@ -47,11 +47,12 @@ func _on_botao_tutorial_pressed():
 
 func _on_botao_opcoes_pressed():
 	print("Abrindo menu de opções...")
-	get_tree().change_scene_to_file("res://cenas/niveis/cena_créditos.tscn")
+	
 	
 
 func _on_botao_sobre_pressed():
 	print("Abrindo créditos...")
+	get_tree().change_scene_to_file("res://cenas/niveis/cena_créditos.tscn")
 	
 
 func _on_botao_sair_pressed():
