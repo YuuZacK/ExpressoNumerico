@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cgbayr0gfl84c"]
+
+[ext_resource type="Script" uid="uid://d282ageb51d2f" path="res://cenas/niveis/tela_embarque.gd" id="1_1c7sp"]
+[ext_resource type="Texture2D" uid="uid://i1swaapqk8br" path="res://assets/sprites/fundos/fundo-cena-embarque-soma.png" id="2_1c7sp"]
+
+[node name="TelaEmbarque" type="Control" unique_id=380376076]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1c7sp")
+
+[node name="Fundo" type="TextureRect" parent="." unique_id=1464627942]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 647.0
+texture = ExtResource("2_1c7sp")
+expand_mode = 1
+stretch_mode = 5

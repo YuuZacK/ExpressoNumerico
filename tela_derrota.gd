@@ -35,4 +35,4 @@ func _on_botao_tente_novamente_pressed() -> void:
 	Global.vidas = 3 
 	
 	# Volta para a primeira conta (Ajuste o caminho se a sua fase estiver em outra pasta)
-	get_tree().change_scene_to_file("res://cenas/niveis/estacao_soma_lvl1-conta2.tscn")
+	get_tree().change_scene_to_file("res://cenas/niveis/estacao_soma_lvl1.tscn")
