@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://dmsmlrn7ohbhm"]
 
 [ext_resource type="Script" uid="uid://gjdn0n12n8ts" path="res://cenas/niveis/tela_vitoria.gd" id="1_6guih"]
-[ext_resource type="Texture2D" uid="uid://dtlp36kq8svic" path="res://assets/sprites/fundos/tela_vitoria_2.jpg" id="2_j2usy"]
+[ext_resource type="Texture2D" uid="uid://c0egtrfui1phn" path="res://assets/sprites/fundos/telavitoriaproximafase.png" id="2_j2usy"]
 [ext_resource type="AudioStream" uid="uid://bsrdopjm3ossc" path="res://assets/sons/Efeito sonoro (Vitória) - Efeitos Sonoros GS (youtube).mp3" id="3_bg5ml"]
-[ext_resource type="Texture2D" uid="uid://dphdny5bnhrjo" path="res://assets/sprites/fundos/botaojogarnovamentetelavitoria.png" id="4_j2usy"]
-[ext_resource type="Texture2D" uid="uid://mdxh7fid0utg" path="res://assets/sprites/fundos/botaojogarnovamentetelavitoriaselecionado.png" id="5_j2usy"]
 [ext_resource type="Texture2D" uid="uid://53epeptnvbt2" path="res://assets/botoes/BotaoMenuPrincipalTelaVitoria.png" id="6_wlp2k"]
 [ext_resource type="Texture2D" uid="uid://du2hk2jsml0w0" path="res://assets/hovers/BotaoMenuPrincipalTelaVitoriaHover.png" id="7_ema8b"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j2usy"]
+load_path = "res://.godot/imported/botaojogarnovamentetelavitoriaselecionado.png-0338b05266ee1788d947ef1d56257c8f.ctex"
 
 [node name="TelaVitoria" type="Control" unique_id=605129087]
 layout_mode = 3
@@ -97,23 +98,19 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 31.0
-offset_top = 531.0
-offset_right = -891.0
-offset_bottom = -19.0
-grow_horizontal = 2
-grow_vertical = 2
-texture_normal = ExtResource("4_j2usy")
-texture_hover = ExtResource("5_j2usy")
-ignore_texture_size = true
+offset_left = 15.0
+offset_top = 468.0
+offset_right = -689.0
+offset_bottom = -42.0
+texture_hover = SubResource("CompressedTexture2D_j2usy")
 stretch_mode = 5
 
 [node name="BotaoMenuPrincipal" type="TextureButton" parent="." unique_id=1466308011]
 layout_mode = 0
-offset_left = 281.0
-offset_top = 544.0
-offset_right = 490.0
-offset_bottom = 612.0
+offset_left = 269.0
+offset_top = 500.0
+offset_right = 478.0
+offset_bottom = 568.0
 texture_normal = ExtResource("6_wlp2k")
 texture_hover = ExtResource("7_ema8b")
 ignore_texture_size = true
