@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bxv0eouhhcdjx" path="res://assets/hovers/BotaoMenuPrincipalCenaFinalHover.png" id="4_i61rw"]
 [ext_resource type="Texture2D" uid="uid://cbflcaqpushil" path="res://assets/botoes/BotaoJogarNovamenteCenaFinal.png" id="5_hlp5s"]
 [ext_resource type="Texture2D" uid="uid://c3mk08h311q07" path="res://assets/hovers/BotaoJogarNovamenteCenaFinalHover.png" id="6_khyro"]
+[ext_resource type="Texture2D" uid="uid://dj54stab13civ" path="res://assets/botoes/BotaoSomaCenaFinal.png" id="8_r68q5"]
+[ext_resource type="Texture2D" uid="uid://cibkv4t1v5fnb" path="res://assets/hovers/BotaoSomaCenaFinalHover.png" id="9_4sa5c"]
 
 [node name="TelaDesembarque" type="Control" unique_id=189808023]
 layout_mode = 3
@@ -98,5 +100,17 @@ texture_hover = ExtResource("6_khyro")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="BotaoSoma" type="TextureButton" parent="." unique_id=76159178]
+layout_mode = 0
+offset_left = 885.0
+offset_top = 448.0
+offset_right = 928.0
+offset_bottom = 488.0
+texture_normal = ExtResource("8_r68q5")
+texture_hover = ExtResource("9_4sa5c")
+ignore_texture_size = true
+stretch_mode = 5
+
 [connection signal="pressed" from="BotaoMenuPrincipal" to="." method="_on_botao_menu_principal_pressed"]
 [connection signal="pressed" from="BotaoJogarNovamente" to="." method="_on_botao_jogar_novamente_pressed"]
+[connection signal="pressed" from="BotaoSoma" to="." method="_on_botao_soma_pressed"]

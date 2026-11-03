@@ -1,8 +1,8 @@
 extends Control
 
 func _ready():
-	# Lista com os dois botões da tela de desembarque
-	var botoes = [$BotaoMenuPrincipal, $BotaoJogarNovamente]
+	# Lista com os botões que terão a hitbox e a animação configuradas
+	var botoes = [$BotaoMenuPrincipal, $BotaoJogarNovamente, $BotaoSoma]
 	
 	for botao in botoes:
 		if botao != null and botao.texture_normal != null:
@@ -19,7 +19,8 @@ func _ready():
 			botao.mouse_exited.connect(_ao_tirar_o_mouse.bind(botao))
 
 func _ao_passar_o_mouse(botao_focado):
-	# Aumenta o tamanho em 10%, aplica um ligeiro escurecimento e muda o cursor
+	# Recalcula o pivot e aumenta o tamanho em 10%, aplica um ligeiro escurecimento e muda o cursor
+	botao_focado.pivot_offset = botao_focado.size / 2.0
 	botao_focado.scale = Vector2(1.1, 1.1)
 	botao_focado.modulate = Color(0.8, 0.8, 0.8)
 	botao_focado.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
@@ -33,24 +34,20 @@ func _ao_tirar_o_mouse(botao_focado):
 
 func _on_botao_menu_principal_pressed():
 	print("Fim da jornada! A regressar ao menu principal...")
-	
-	# Zera todo o progresso global, uma vez que o jogo foi concluído
 	Global.pontos = 0
 	Global.acertos = 0
 	Global.vidas = 3
 	Global.tempo_gasto = 0
-	
-	# Redireciona para a cena do menu principal
 	get_tree().change_scene_to_file("res://cenas/menu/menu_principal.tscn")
 
 func _on_botao_jogar_novamente_pressed():
 	print("A reiniciar a jornada desde o início...")
-	
-	# Zera o progresso para recomeçar o jogo do zero
 	Global.pontos = 0
 	Global.acertos = 0
 	Global.vidas = 3
 	Global.tempo_gasto = 0
-	
-	# Redireciona para a primeira fase do jogo (ajuste o caminho se necessário)
 	get_tree().change_scene_to_file("res://cenas/niveis/estacao_soma_lvl1.tscn")
+
+func _on_botao_soma_pressed() -> void:
+	print("Botão Soma pressionado!")
+	# Adicione aqui a lógica do que deve acontecer quando o BotaoSoma for clicado
