@@ -16,8 +16,8 @@ signal tempo_esgotado
 @onready var vida3 = $CaixaDeVidas/Vida3
 
 # Variáveis para controlar o cronómetro
-var tempo_maximo = 30.0
-var tempo_atual = 30.0
+var tempo_maximo = 15.0
+var tempo_atual = 15.0
 
 func _ready():
 	# Valores iniciais: coloca os pontos a zero e enche a barra

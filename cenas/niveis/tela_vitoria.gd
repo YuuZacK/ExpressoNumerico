@@ -21,8 +21,8 @@ func _ready():
 	valor_tempo.text = str(Global.tempo_gasto) + "s"
 
 	# --- CONFIGURAÇÃO DE HITBOX E ANIMAÇÃO DOS BOTÕES ---
-	# Certifique-se de que os dois botões abaixo são do tipo TextureButton
-	var botoes = [$BotaoJogarNovamente, $BotaoMenuPrincipal]
+	# O $BotaoProximaFase foi adicionado à lista para receber os mesmos efeitos
+	var botoes = [$BotaoJogarNovamente, $BotaoMenuPrincipal, $BotaoProximaFase]
 	
 	for botao in botoes:
 		if botao != null and botao.texture_normal != null:
@@ -53,17 +53,23 @@ func _ao_tirar_o_mouse(botao_focado):
 
 # --- FUNÇÕES ORIGINAIS DE CLIQUE ---
 
-func _on_botao_jogar_novamente_pressed():
-	# Verifica se existe um trilho salvo para a próxima fase
+func _on_botao_proxima_fase_pressed() -> void:
+	# Lógica transferida para o botão correto
 	if Global.proxima_estacao != "":
 		get_tree().change_scene_to_file(Global.proxima_estacao)
 	else:
-		# Se não houver próxima estação, volta ao menu e limpa o progresso
-		Global.pontos = 0
-		Global.acertos = 0
-		Global.vidas = 3
-		Global.tempo_gasto = 0
-		get_tree().change_scene_to_file("res://cenas/menu/menu_principal.tscn")
+		# Se não houver próxima estação (fim do jogo), vai para o desembarque
+		get_tree().change_scene_to_file("res://cenas/niveis/tela_desembarque.tscn")
+
+func _on_botao_jogar_novamente_pressed():
+	# Zera os status da fase atual para recomeçar
+	Global.pontos = 0
+	Global.acertos = 0
+	Global.vidas = 3
+	Global.tempo_gasto = 0
+	
+	# SUBSTITUA ESTE CAMINHO pelo caminho da fase que o jogador acabou de jogar (ex: estacao_soma_lvl1.tscn)
+	get_tree().change_scene_to_file("res://cenas/menu/menu_principal.tscn")
 
 func _on_botao_menu_principal_pressed():
 	# Zera tudo ao abandonar a partida pelo menu
