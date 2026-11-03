@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://drvr2acjc7x1a"]
 
+[ext_resource type="Script" uid="uid://cihrqjorpgbvf" path="res://cenas/niveis/cena_créditos.gd" id="1_pvbe5"]
 [ext_resource type="Texture2D" uid="uid://duupfpp6s6bu0" path="res://assets/sprites/fundos/img-créditos.jpg" id="1_x7dba"]
+[ext_resource type="Texture2D" uid="uid://bgxorotxfu4ee" path="res://assets/sprites/fundos/BotaoVoltarCreditos.png" id="2_77ss3"]
+[ext_resource type="Texture2D" uid="uid://c3c3k05jm8d7e" path="res://assets/hovers/BotaoVoltarCreditosHover.png" id="3_pvbe5"]
 
 [node name="CenaCréditos" type="Control" unique_id=184535996]
 layout_mode = 3
@@ -12,6 +15,7 @@ offset_right = 2.0
 offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_pvbe5")
 
 [node name="Fundo" type="TextureRect" parent="." unique_id=1345168894]
 layout_mode = 0
@@ -20,3 +24,16 @@ offset_right = 1150.0
 offset_bottom = 659.0
 texture = ExtResource("1_x7dba")
 expand_mode = 1
+
+[node name="BotaoVoltar" type="TextureButton" parent="." unique_id=2097894515]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 290.0
+offset_right = 178.0
+offset_bottom = 343.0
+texture_normal = ExtResource("2_77ss3")
+texture_hover = ExtResource("3_pvbe5")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="BotaoVoltar" to="." method="_on_botao_voltar_pressed"]
