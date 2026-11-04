@@ -2,37 +2,48 @@ extends Control
 
 # Essa função roda automaticamente assim que a tela abre
 func _ready():
-	# 1. Colocamos os dois botões na nossa "caixa"
-	# (Verifique se os nomes dos nós na sua árvore estão exatamente assim)
-	var botoes = [$TextureRect/BotaoTenteNovamente, $TextureRect/BotaoMenuPrincipal]
+	# 1. Colocamos os dois botões na nossa "caixa" (certifique-se de movê-los na árvore para fora do TextureRect)
+	var botoes = [$BotaoTenteNovamente, $BotaoMenuPrincipal]
 	
-	# 2. A linha de montagem que recorta a máscara de cada um
+	# 2. A linha de montagem que recorta a máscara e aplica os efeitos de mouse
 	for botao in botoes:
-		if botao.texture_normal != null:
+		if botao != null and botao.texture_normal != null:
+			# Criação da máscara baseada na transparência
 			var mascara = BitMap.new()
 			mascara.create_from_image_alpha(botao.texture_normal.get_image())
 			botao.texture_click_mask = mascara
+			
+			# Define o centro do botão para que a ampliação aconteça a partir do meio
+			botao.pivot_offset = botao.size / 2.0
+			
+			# Liga os sinais de passar o rato e tirar o rato
+			botao.mouse_entered.connect(_ao_passar_o_mouse.bind(botao))
+			botao.mouse_exited.connect(_ao_tirar_o_mouse.bind(botao))
 
+func _ao_passar_o_mouse(botao_focado):
+	# Recalcula o pivot, aumenta o tamanho em 15%, aplica escurecimento leve e muda o cursor
+	botao_focado.pivot_offset = botao_focado.size / 2.0
+	botao_focado.scale = Vector2(1.15, 1.15)
+	botao_focado.modulate = Color(0.85, 0.85, 0.85)
+	botao_focado.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+
+func _ao_tirar_o_mouse(botao_focado):
+	# Devolve o botão ao tamanho e cor originais
+	botao_focado.scale = Vector2(1.0, 1.0)
+	botao_focado.modulate = Color(1.0, 1.0, 1.0)
 
 func _on_botao_menu_principal_pressed():
 	print("Voltando ao menu...")
-	# Zera os pontos e acertos
 	Global.pontos = 0
 	Global.acertos = 0
-	# Devolve as 3 vidas!
 	Global.vidas = 3 
 	
-	# Volta para o menu principal (Ajuste o caminho se o seu menu estiver em outra pasta)
 	get_tree().change_scene_to_file("res://cenas/menu/menu_principal.tscn")
-
 
 func _on_botao_tente_novamente_pressed() -> void:
 	print("Reiniciando o jogo...")
-	# Zera os pontos e acertos
 	Global.pontos = 0
 	Global.acertos = 0
-	# Devolve as 3 vidas para a nova partida!
 	Global.vidas = 3 
 	
-	# Volta para a primeira conta (Ajuste o caminho se a sua fase estiver em outra pasta)
 	get_tree().change_scene_to_file("res://cenas/niveis/estacao_soma_lvl1.tscn")
