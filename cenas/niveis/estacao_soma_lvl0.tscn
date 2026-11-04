@@ -6,7 +6,9 @@
 [ext_resource type="AudioStream" uid="uid://xdvonxb3ogxj" path="res://Efeitos Sonoros Som de Decepção.mp3" id="3_sdke2"]
 [ext_resource type="Texture2D" uid="uid://ceburdvfyou2k" path="res://assets/sprites/matematica/tileset-quadro.png" id="4_sdke2"]
 [ext_resource type="Texture2D" uid="uid://75tlfn8yd03l" path="res://assets/sprites/matematica/tileset-matematica.jpg" id="5_kj17w"]
-[ext_resource type="Texture2D" uid="uid://ca1asst852feq" path="res://assets/sprites/fundos/instrucoes-tutorial.png" id="7_ghu48"]
+[ext_resource type="Texture2D" uid="uid://dlumsjwsh08ug" path="res://assets/sprites/fundos/layout tutorial.png" id="7_sjo3p"]
+[ext_resource type="Texture2D" uid="uid://chelmub44h5sm" path="res://cenas/menu/botao_jogar.png" id="8_sjo3p"]
+[ext_resource type="Texture2D" uid="uid://62fl663adtdv" path="res://cenas/menu/botao_jogar_hover.png" id="9_aqdri"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ncff0"]
 texture = ExtResource("4_sdke2")
@@ -10490,12 +10492,24 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_aqtmd")
 caret_blink = true
 
-[node name="LayoutTutorial" type="TextureRect" parent="." unique_id=1251377274]
-offset_left = 30.0
-offset_top = 373.0
-offset_right = 492.0
-offset_bottom = 620.0
-texture = ExtResource("7_ghu48")
+[node name="LayoutTutorial" type="TextureRect" parent="." unique_id=1955330067]
+offset_left = -6.0
+offset_top = 98.0
+offset_right = 1148.0
+offset_bottom = 642.0
+texture = ExtResource("7_sjo3p")
 expand_mode = 1
+stretch_mode = 5
+
+[node name="BotãoJogar" type="TextureButton" parent="." unique_id=187526988]
+offset_left = 483.0
+offset_top = 483.0
+offset_right = 1040.0
+offset_bottom = 594.0
+texture_normal = ExtResource("8_sjo3p")
+texture_hover = ExtResource("9_aqdri")
+ignore_texture_size = true
+stretch_mode = 5
 
 [connection signal="text_submitted" from="CaixaDeResposta" to="." method="_on_caixa_de_resposta_text_submitted"]
+[connection signal="pressed" from="BotãoJogar" to="." method="_on_botão_jogar_pressed"]
