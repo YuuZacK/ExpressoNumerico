@@ -88,4 +88,4 @@ func finalizar_fase() -> void:
 	# Grava a próxima estação (geralmente Subtração) antes de ir para a tela de vitória
 	Global.proxima_estacao = "res://cenas/niveis/estacao-subtracao.tscn"
 
-	get_tree().change_scene_to_file("res://cenas/niveis/tela_vitoria.tscn")
+	get_tree().change_scene_to_file("res://cenas/niveis/TelaProximaFase.tscn")

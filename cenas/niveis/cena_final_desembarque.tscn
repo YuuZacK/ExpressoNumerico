@@ -52,17 +52,6 @@ offset_right = 379.68
 offset_bottom = 336.176
 theme_override_colors/font_color = Color(0.017020682, 0.017020678, 0.017020678, 1)
 
-[node name="ValorSomas" type="Label" parent="ValorTempo" unique_id=1227791206]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.035
-anchor_bottom = 0.063
-offset_left = 344.0
-offset_top = 386.0
-offset_right = 376.68
-offset_bottom = 368.176
-theme_override_colors/font_color = Color(0.0142752165, 0.014275218, 0.014275218, 1)
-
 [node name="ValorErros" type="Label" parent="." unique_id=1713237972]
 layout_mode = 1
 anchors_preset = -1
@@ -105,6 +94,17 @@ texture_normal = ExtResource("3_iarvn")
 texture_hover = ExtResource("4_utk1x")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="ValorSomas" type="Label" parent="." unique_id=1227791206]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.063
+offset_left = 681.0
+offset_top = 740.0
+offset_right = 713.68
+offset_bottom = 722.176
+theme_override_colors/font_color = Color(0.0142752165, 0.014275218, 0.014275218, 1)
 
 [connection signal="pressed" from="BotaoVoltar" to="." method="_on_botao_voltar_pressed"]
 [connection signal="pressed" from="BotaoJogarNovamente" to="." method="_on_botao_jogar_novamente_pressed"]

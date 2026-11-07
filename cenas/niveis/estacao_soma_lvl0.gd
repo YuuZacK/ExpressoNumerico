@@ -60,7 +60,7 @@ func _on_botão_jogar_pressed() -> void:
 
 func _on_caixa_de_resposta_text_submitted(new_text: String) -> void:
 	if new_text.strip_edges() == RESPOSTA_CORRETA:
-		get_tree().change_scene_to_file("res://cenas/niveis/tela_embarque.tscn")
+		get_tree().change_scene_to_file("res://cenas/niveis/TelaProximaFase.tscn")
 	else:
 		caixa_resposta.clear()
 		caixa_resposta.grab_focus()

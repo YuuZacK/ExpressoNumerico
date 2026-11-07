@@ -81,4 +81,4 @@ func finalizar_fase() -> void:
 	# Grava o trilho para a próxima fase antes de abrir a vitória
 	Global.proxima_estacao = "res://cenas/niveis/estacao-multiplicacao.tscn"
 	
-	get_tree().change_scene_to_file("res://cenas/niveis/tela_vitoria.tscn")
+	get_tree().change_scene_to_file("res://cenas/niveis/TelaProximaFase.tscn")

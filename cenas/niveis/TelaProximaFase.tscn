@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://75fc44e3u3rt"]
+
+[ext_resource type="Script" uid="uid://dgic0q3jfvvof" path="res://cenas/niveis/tela_proxima_fase.gd" id="1_opvyb"]
+[ext_resource type="Texture2D" uid="uid://cnhh07hudi3bq" path="res://assets/sprites/fundos/TelaProximaFaseDivisao.jpeg" id="2_6ng52"]
+[ext_resource type="Texture2D" uid="uid://ckjxuyy3hl30l" path="res://assets/sprites/fundos/TelaProximaFaseMultiplicacao.jpeg" id="3_su20b"]
+[ext_resource type="Texture2D" uid="uid://b11neo3n1ucg" path="res://assets/sprites/fundos/TelaProximaFaseSubtracao.jpeg" id="4_gkal1"]
+[ext_resource type="Texture2D" uid="uid://d3kelcywkhffa" path="res://assets/botoes/BotaoTelaProximaFaseDivisaoMenuPrincipal.png" id="5_tbf4f"]
+[ext_resource type="Texture2D" uid="uid://dsbjyfedjught" path="res://assets/botoes/BotaoProximaFase.png" id="6_ae7my"]
+
+[node name="Control" type="Control" unique_id=312688989]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_opvyb")
+
+[node name="Fundo" type="TextureRect" parent="." unique_id=1161077540]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6ng52")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FundoFaseMultiplicacao" type="TextureRect" parent="." unique_id=1409295837]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_su20b")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FundoFaseSubtracao" type="TextureRect" parent="." unique_id=1808822283]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_gkal1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BotaoMenuPrincipal" type="TextureButton" parent="." unique_id=574584986]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 553.0
+offset_right = 502.0
+offset_bottom = 631.0
+texture_normal = ExtResource("5_tbf4f")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="BotaoProximaFase" type="TextureButton" parent="." unique_id=991274226]
+layout_mode = 0
+offset_left = -12.0
+offset_top = 557.0
+offset_right = 307.0
+offset_bottom = 632.0
+texture_normal = ExtResource("6_ae7my")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="BotaoMenuPrincipal" to="." method="_on_botao_menu_principal_pressed"]
+[connection signal="pressed" from="BotaoProximaFase" to="." method="_on_botao_proxima_fase_pressed"]

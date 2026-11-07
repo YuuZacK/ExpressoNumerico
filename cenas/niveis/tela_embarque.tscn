@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d282ageb51d2f" path="res://cenas/niveis/tela_embarque.gd" id="1_1c7sp"]
 [ext_resource type="Texture2D" uid="uid://i1swaapqk8br" path="res://assets/sprites/fundos/fundo-cena-embarque-soma.png" id="2_1c7sp"]
+[ext_resource type="Texture2D" uid="uid://d3kelcywkhffa" path="res://assets/botoes/BotaoTelaProximaFaseDivisaoMenuPrincipal.png" id="3_yf2e3"]
 
 [node name="TelaEmbarque" type="Control" unique_id=380376076]
 layout_mode = 3
@@ -19,3 +20,24 @@ offset_bottom = 647.0
 texture = ExtResource("2_1c7sp")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="BotaoProximafase" type="TextureButton" parent="." unique_id=375905209]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 565.0
+offset_right = 261.0
+offset_bottom = 624.0
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="BotaoMenuPrincipal" type="TextureButton" parent="." unique_id=151792345]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 553.0
+offset_right = 497.0
+offset_bottom = 629.0
+texture_normal = ExtResource("3_yf2e3")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="BotaoProximafase" to="." method="_on_botao_proximafase_pressed"]

@@ -35,13 +35,35 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.035
 anchor_bottom = 0.063
-offset_left = 354.0
-offset_top = 472.0
-offset_right = 407.68
-offset_bottom = 457.176
+offset_left = 329.0
+offset_top = 418.0
+offset_right = 382.68
+offset_bottom = 403.176
 theme_override_colors/font_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
 
-[node name="ValorTempo" type="Label" parent="." unique_id=893050265]
+[node name="ValorSomas" type="Label" parent="." unique_id=1560452387]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.063
+offset_left = 342.0
+offset_top = 339.0
+offset_right = 376.68
+offset_bottom = 329.176
+theme_override_colors/font_color = Color(0.0142752165, 0.014275218, 0.014275218, 1)
+
+[node name="ValorErros" type="Label" parent="." unique_id=89122636]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.063
+offset_left = 348.0
+offset_top = 370.0
+offset_right = 378.68
+offset_bottom = 362.176
+theme_override_colors/font_color = Color(0.0067570917, 0.060838416, 0.04774309, 1)
+
+[node name="ValorTempo" type="Label" parent="." unique_id=514411667]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.035
@@ -51,28 +73,6 @@ offset_top = 354.0
 offset_right = 379.68
 offset_bottom = 336.176
 theme_override_colors/font_color = Color(0.017020682, 0.017020678, 0.017020678, 1)
-
-[node name="ValorSomas" type="Label" parent="." unique_id=1560452387]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.035
-anchor_bottom = 0.063
-offset_left = 344.0
-offset_top = 386.0
-offset_right = 376.68
-offset_bottom = 368.176
-theme_override_colors/font_color = Color(0.0142752165, 0.014275218, 0.014275218, 1)
-
-[node name="ValorErros" type="Label" parent="." unique_id=89122636]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.035
-anchor_bottom = 0.063
-offset_left = 350.0
-offset_top = 430.0
-offset_right = 380.68
-offset_bottom = 412.176
-theme_override_colors/font_color = Color(0.0067570917, 0.060838416, 0.04774309, 1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1536420023]
 stream = ExtResource("3_pwwrs")
