@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cibbjjdtn40gj" path="res://hud.gd" id="1_8sq4i"]
 [ext_resource type="FontFile" uid="uid://dn5e2lfsl1qjb" path="res://Fontes/Bebas_Neue/BebasNeue-Regular.ttf" id="1_64ctp"]
 [ext_resource type="Texture2D" uid="uid://ch60oc4ldi5lp" path="res://assets/sprites/coracao-128x128.png" id="2_64ctp"]
+[ext_resource type="AudioStream" uid="uid://cgs2kcxtgj0jw" path="res://assets/sons/SomVidaPerdida.mp3" id="4_640wx"]
 
 [node name="HUD" type="CanvasLayer" unique_id=134351520]
 script = ExtResource("1_8sq4i")
@@ -87,3 +88,6 @@ offset_bottom = 93.0
 theme_override_colors/font_color = Color(0.015067441, 0.027561046, 0.0018345141, 1)
 theme_override_font_sizes/font_size = 35
 text = "100"
+
+[node name="SomVidaPerdida" type="AudioStreamPlayer" parent="." unique_id=2100719386]
+stream = ExtResource("4_640wx")

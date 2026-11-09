@@ -7,8 +7,9 @@ signal tempo_esgotado
 @onready var barra_tempo = $BarraDeTempo
 @onready var texto_acertos = $TextoAcertos
 @onready var texto_pontos = $TextoPontos
-@onready var som_alarme = $SomAlarme 
-@onready var texto_tempo = $TextoTempo # <-- AQUI ESTÁ A NOVA VARIÁVEL DO CRONÓMETRO
+@onready var som_alarme = $SomAlarme
+@onready var som_vida_perdida = $SomVidaPerdida # <-- NOVA VARIÁVEL DO SOM CURTO
+@onready var texto_tempo = $TextoTempo
 
 # Variáveis para as vidas (buscando dentro da CaixaDeVidas):
 @onready var vida1 = $CaixaDeVidas/Vida1
@@ -34,27 +35,25 @@ func _process(delta):
 	if tempo_atual > 0:
 		tempo_atual = tempo_atual - delta 
 		
-		# No exato momento em que o tempo chegar a zero (ou ficar negativo)...
+	# No exato momento em que o tempo chegar a zero (ou ficar negativo)...
 		if tempo_atual <= 0:
 			tempo_atual = 0 # Travamos no zero para a barra não quebrar
 			
 			# Disparamos o alarme para o jogo principal ouvir!
 			tempo_esgotado.emit()
 			
-			# Toca o som de alarme!
-			som_alarme.play()
-			
-			# Congela o ecrã por 1.5 segundos para ouvir o som de derrota
-			await get_tree().create_timer(1.5).timeout 
-			
-			# --- LÓGICA DE VIDAS ---
+			# --- LÓGICA DE VIDAS E ÁUDIO SEPARADOS ---
 			Global.vidas -= 1  # Retira 1 vida
 			
 			if Global.vidas > 0:
-				# Se ainda tem vidas, recarrega a conta atual para tentar de novo
+				# Toca o som curto e recarrega rápido
+				som_vida_perdida.play()
+				await get_tree().create_timer(1.0).timeout 
 				get_tree().reload_current_scene()
 			else:
-				# Se as vidas chegaram a zero, chama o ecrã de Game Over
+				# Toca o som curto da última vida perdida e vai para a derrota
+				som_vida_perdida.play()
+				await get_tree().create_timer(1.0).timeout 
 				get_tree().change_scene_to_file("res://tela_derrota.tscn")
 			
 		atualizar_tempo(tempo_atual)

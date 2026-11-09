@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bja4xk45wmaea" path="res://assets/sprites/fundos/fundo-cenario-multiplicacao.jpg" id="1_a1fou"]
 [ext_resource type="Script" uid="uid://bcowd7j525dfm" path="res://cenas/niveis/estacao_multiplicacao.gd" id="1_an4hh"]
 [ext_resource type="PackedScene" uid="uid://d3xrakd14x85e" path="res://hud.tscn" id="2_an4hh"]
+[ext_resource type="AudioStream" uid="uid://bd3wsksd3sw7c" path="res://assets/sons/SomErro.mp3" id="2_mjcv1"]
 [ext_resource type="AudioStream" uid="uid://xdvonxb3ogxj" path="res://Efeitos Sonoros Som de Decepção.mp3" id="3_mjcv1"]
 [ext_resource type="Texture2D" uid="uid://ceburdvfyou2k" path="res://assets/sprites/matematica/tileset-quadro.png" id="4_8aki6"]
 
@@ -3652,6 +3653,8 @@ font_color = Color(0.023529412, 0.023529412, 0.023529412, 1)
 [node name="EstacaoMultiplicacao" type="Node2D" unique_id=1040667063]
 script = ExtResource("1_an4hh")
 
+[node name="TimerErro" type="Timer" parent="." unique_id=727813139]
+
 [node name="FundoCenarioMultiplicacao" type="Sprite2D" parent="." unique_id=1946405512]
 position = Vector2(575.5, 341.5)
 scale = Vector2(0.45213604, 0.40272835)
@@ -3685,5 +3688,8 @@ text = "0"
 label_settings = SubResource("LabelSettings_an4hh")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SomErro" type="AudioStreamPlayer" parent="." unique_id=1785763828]
+stream = ExtResource("2_mjcv1")
 
 [connection signal="text_changed" from="CaixaDeResposta" to="HUD" method="_on_caixa_de_resposta_text_changed"]

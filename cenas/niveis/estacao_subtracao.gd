@@ -2,39 +2,67 @@ extends Node2D
 
 @onready var hud = $HUD
 @onready var caixa_resposta = $CaixaDeResposta
-@onready var caixa_calculo = $CaixaCalculo # Referência ao Label da conta
+@onready var caixa_calculo = $CaixaCalculo
+@onready var som_erro = $SomErro       # Referência ao som de erro
+@onready var timer_erro = $TimerErro   # Referência ao cronômetro de tolerância
 
-# Define a quantidade total de contas dinâmicas que o jogador precisa resolver
-var total_contas: int = 6 
+@export var max_niveis: int = 6
+@export var niveis: Array[Dictionary] = []
+
 var indice_atual: int = 0
-var resultado_atual: int = 0
+var nivel_atual: Dictionary = {}
 var aguardando_transicao: bool = false
 
 func _ready() -> void:
-	# Inicializa o gerador de números aleatórios para não repetir as mesmas contas
-	randomize() 
+	# Zera as variáveis da fase atual
+	Global.pontos_fase_atual = 0
+	Global.acertos_fase_atual = 0
+	Global.tempo_fase_atual = 0
+	
+	# Configura o Timer de Erro (1 segundo de espera, toca só uma vez)
+	if timer_erro:
+		timer_erro.wait_time = 1.0
+		timer_erro.one_shot = true
+		if not timer_erro.timeout.is_connected(_on_timer_erro_timeout):
+			timer_erro.timeout.connect(_on_timer_erro_timeout)
+
+	if caixa_resposta and not caixa_resposta.text_changed.is_connected(_on_caixa_de_resposta_text_changed):
+		caixa_resposta.text_changed.connect(_on_caixa_de_resposta_text_changed)
+	
+	carregar_perguntas()
 	carregar_nivel_atual()
 
-## Gera os dados de uma nova conta dinamicamente e atualiza a interface
+func carregar_perguntas() -> void:
+	for i in max_niveis:
+		var valor1: int = randi_range(1, 10)
+		var valor2: int = randi_range(0, valor1) # Garante que o resultado não seja negativo
+		
+		var texto_calculo: String = "{v1} - {v2}".format({"v1": valor1, "v2": valor2})
+		var conta_resultado: int = valor1 - valor2
+		
+		niveis.append({
+			"nivel": i + 1,
+			"calculo": texto_calculo,
+			"resultado": conta_resultado
+		})
+	print(niveis)
+
 func carregar_nivel_atual() -> void:
-	if indice_atual < total_contas:
-		# Geração dinâmica dos números (Ex: de 1 a 10)
-		var valor1 = randi_range(1, 10)
-		# Garante que valor2 seja menor ou igual a valor1 para evitar resultados negativos
-		var valor2 = randi_range(0, valor1) 
-		
-		# Define o resultado e o texto dinamicamente
-		resultado_atual = valor1 - valor2
-		caixa_calculo.text = str(valor1) + " - " + str(valor2)
-		
-		# Prepara a caixa de resposta
+	if indice_atual < niveis.size():
+		nivel_atual = niveis[indice_atual]
 		caixa_resposta.text = ""
-		caixa_resposta.editable = true
-		aguardando_transicao = false
 		
-		# Atualiza o HUD com pontos e progresso
+		# Limpa a cor do texto para voltar ao padrão
+		caixa_resposta.remove_theme_color_override("font_color")
+		
+		caixa_resposta.editable = true
+		caixa_resposta.grab_focus()
+		aguardando_transicao = false
+
+		caixa_calculo.text = str(nivel_atual["calculo"])
+
 		hud.atualizar_pontos(Global.pontos)
-		hud.atualizar_acertos(Global.acertos, total_contas)
+		hud.atualizar_acertos(Global.acertos, niveis.size())
 	else:
 		finalizar_fase()
 
@@ -42,43 +70,63 @@ func _on_caixa_de_resposta_text_changed(new_text: String) -> void:
 	if aguardando_transicao:
 		return
 
-	# Filtro: aceita apenas números inteiros
+	# Sempre que digitar ou apagar, cancela o alarme e volta a cor normal
+	if timer_erro:
+		timer_erro.stop()
+	caixa_resposta.remove_theme_color_override("font_color")
+
 	if not new_text.is_valid_int() and new_text != "":
 		caixa_resposta.text = new_text.left(-1)
 		caixa_resposta.caret_column = caixa_resposta.text.length()
 		return
 
-	# Validação da resposta comparando com a variável dinâmica
-	if new_text != "" and new_text.to_int() == resultado_atual:
+	if new_text != "" and new_text.to_int() == int(nivel_atual["resultado"]):
 		aguardando_transicao = true
 		caixa_resposta.editable = false
 		
+		# Deixa o texto verde ao acertar
+		caixa_resposta.add_theme_color_override("font_color", Color(0, 1, 0))
+
+		# Soma os pontos Globais e os da Fase
 		Global.pontos += 10
 		Global.acertos += 1
-		
-		# Calcula o tempo usado nesta conta dinâmica e soma no valor global
+		Global.pontos_fase_atual += 10
+		Global.acertos_fase_atual += 1
+
 		var tempo_usado = hud.tempo_maximo - hud.tempo_atual
 		Global.tempo_gasto += int(tempo_usado)
-		
+		Global.tempo_fase_atual += int(tempo_usado)
+
 		hud.atualizar_pontos(Global.pontos)
-		hud.atualizar_acertos(Global.acertos, total_contas)
-		
-		# Pausa de 1 segundo para visualização da resposta
+		hud.atualizar_acertos(Global.acertos, niveis.size())
+
 		await get_tree().create_timer(1.0).timeout
+		if not is_inside_tree():
+			return
+			
 		hud.tempo_atual = hud.tempo_maximo
-		
-		# Avança para a próxima conta
+
 		indice_atual += 1
 		carregar_nivel_atual()
+		
+	elif new_text != "":
+		# Dispara o relógio de erro
+		if timer_erro:
+			timer_erro.start()
 
-## Executado ao concluir todas as contas
+func _on_timer_erro_timeout() -> void:
+	if som_erro:
+		som_erro.play()
+	# Muda a cor da fonte para vermelho
+	caixa_resposta.add_theme_color_override("font_color", Color(1, 0, 0))
+
 func finalizar_fase() -> void:
 	caixa_resposta.editable = false
 	caixa_resposta.text = ""
 	caixa_calculo.text = "Parabéns!!!"
-	print("Fase concluída com sucesso!")
+	print("Fase de subtração concluída com sucesso!")
 	
-	# Grava o trilho para a próxima fase antes de abrir a vitória
+	# Prepara a rota para a Multiplicação
 	Global.proxima_estacao = "res://cenas/niveis/estacao-multiplicacao.tscn"
-	
+
 	get_tree().change_scene_to_file("res://cenas/niveis/TelaProximaFase.tscn")

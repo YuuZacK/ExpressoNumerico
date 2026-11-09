@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://l55sr1jkfe70"]
 
 [ext_resource type="Script" uid="uid://t1v81mwubefw" path="res://cenas/niveis/estacao_divisao.gd" id="1_obu1j"]
+[ext_resource type="AudioStream" uid="uid://bd3wsksd3sw7c" path="res://assets/sons/SomErro.mp3" id="2_qeke2"]
 [ext_resource type="Texture2D" uid="uid://dke1365mfjue" path="res://assets/sprites/fundos/fundo-cenario-divisao.png" id="2_vev3f"]
 [ext_resource type="PackedScene" uid="uid://d3xrakd14x85e" path="res://hud.tscn" id="3_qeke2"]
 [ext_resource type="AudioStream" uid="uid://xdvonxb3ogxj" path="res://Efeitos Sonoros Som de Decepção.mp3" id="4_pbguu"]
@@ -3651,6 +3652,11 @@ font_color = Color(0.023529412, 0.023529412, 0.023529412, 1)
 
 [node name="EstacaoDivisao" type="Node2D" unique_id=657403850]
 script = ExtResource("1_obu1j")
+
+[node name="TimerErro" type="Timer" parent="." unique_id=487420988]
+
+[node name="SomErro" type="AudioStreamPlayer" parent="." unique_id=727022595]
+stream = ExtResource("2_qeke2")
 
 [node name="FundoCenarioDivisao" type="Sprite2D" parent="." unique_id=1866055465]
 position = Vector2(576.99994, 325.00003)
