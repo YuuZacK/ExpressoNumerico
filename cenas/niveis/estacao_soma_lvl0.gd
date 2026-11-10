@@ -1,7 +1,9 @@
+class_name EstacaoTutorial
 extends Node2D
 
-# 1. Variável estática: persiste na memória mesmo se a cena recarregar após perder vida
+# Variáveis estáticas persistem entre recarregamentos e trocas de cena
 static var tutorial_visto: bool = false
+static var tutorial_ativo: bool = false
 
 @onready var hud: CanvasLayer = $HUD
 @onready var layout_tutorial: TextureRect = $LayoutTutorial
@@ -11,7 +13,10 @@ static var tutorial_visto: bool = false
 const RESPOSTA_CORRETA: String = "4"
 
 func _ready() -> void:
-	# 2. Se o tutorial já foi visto nesta sessão, mantém escondido e o jogo rodando
+	# 1. Ativa a flag informando que a partida atual é o tutorial
+	tutorial_ativo = true
+	
+	# Se o tutorial já foi visto nesta sessão, mantém escondido e o jogo rodando
 	if tutorial_visto:
 		layout_tutorial.hide()
 		botao_jogar.hide()
@@ -19,7 +24,7 @@ func _ready() -> void:
 		caixa_resposta.grab_focus()
 		return
 	
-	# Caso seja a primeira vez que a fase carrega:
+	# Caso seja a primeira vez que a fase carrega
 	layout_tutorial.show()
 	botao_jogar.show()
 	caixa_resposta.release_focus()
@@ -52,7 +57,6 @@ func _ao_tirar_o_mouse() -> void:
 # --- FLUXO DO JOGO ---
 
 func _on_botão_jogar_pressed() -> void:
-	# 3. Marca como visto para nunca mais reabrir enquanto a partida estiver ativa
 	tutorial_visto = true
 	
 	layout_tutorial.hide()
@@ -62,7 +66,8 @@ func _on_botão_jogar_pressed() -> void:
 
 func _on_caixa_de_resposta_text_submitted(new_text: String) -> void:
 	if new_text.strip_edges() == RESPOSTA_CORRETA:
-		# Reseta a flag estática para uma futura partida caso volte ao tutorial depois
+		# Desativa as flags ao acertar e avançar de fase
+		tutorial_ativo = false
 		tutorial_visto = false
 		get_tree().change_scene_to_file("res://cenas/niveis/tela_embarque.tscn")
 	else:

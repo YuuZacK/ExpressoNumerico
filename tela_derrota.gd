@@ -1,5 +1,8 @@
 extends Control
 
+# Importa o script do tutorial diretamente pelo caminho do arquivo:
+const EstacaoTutorial = preload("res://cenas/niveis/estacao_soma_lvl0.gd")
+
 # Essa função roda automaticamente assim que a tela abre
 func _ready():
 	# 1. Colocamos os dois botões na nossa "caixa" (certifique-se de movê-los na árvore para fora do TextureRect)
@@ -36,7 +39,7 @@ func _on_botao_menu_principal_pressed():
 	print("Voltando ao menu...")
 	Global.pontos = 0
 	Global.acertos = 0
-	Global.vidas = 3 
+	Global.vidas = 3
 	
 	get_tree().change_scene_to_file("res://cenas/menu/menu_principal.tscn")
 
@@ -44,6 +47,10 @@ func _on_botao_tente_novamente_pressed() -> void:
 	print("Reiniciando o jogo...")
 	Global.pontos = 0
 	Global.acertos = 0
-	Global.vidas = 3 
+	Global.vidas = 3
 	
-	get_tree().change_scene_to_file("res://cenas/niveis/estacao_soma_lvl1.tscn")
+	# Se a derrota veio do tutorial, retorna para a cena do tutorial
+	if EstacaoTutorial.tutorial_ativo:
+		get_tree().change_scene_to_file("res://cenas/niveis/estacao_soma_lvl0.tscn")
+	else:
+		get_tree().change_scene_to_file("res://cenas/niveis/estacao_soma_lvl1.tscn")
