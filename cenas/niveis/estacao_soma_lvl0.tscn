@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cafdedyrq6lt3" path="res://cenas/niveis/estacao_soma_lvl0.gd" id="1_sjo3p"]
 [ext_resource type="Texture2D" uid="uid://bo1wc3eupni7y" path="res://assets/sprites/fundos/fundo-cenario-soma-limpo.jpg" id="1_tkbbo"]
+[ext_resource type="AudioStream" uid="uid://bd3wsksd3sw7c" path="res://assets/sons/SomErro.mp3" id="2_aqdri"]
 [ext_resource type="PackedScene" uid="uid://d3xrakd14x85e" path="res://hud.tscn" id="3_nux70"]
 [ext_resource type="AudioStream" uid="uid://xdvonxb3ogxj" path="res://Efeitos Sonoros Som de Decepção.mp3" id="3_sdke2"]
 [ext_resource type="Texture2D" uid="uid://ceburdvfyou2k" path="res://assets/sprites/matematica/tileset-quadro.png" id="4_sdke2"]
@@ -10459,6 +10460,11 @@ bg_color = Color(1, 1, 1, 1)
 
 [node name="estacao_soma_lvl0" type="Node2D" unique_id=1515939005]
 script = ExtResource("1_sjo3p")
+
+[node name="SomErro" type="AudioStreamPlayer" parent="." unique_id=1506293558]
+stream = ExtResource("2_aqdri")
+
+[node name="TimerErro" type="Timer" parent="." unique_id=1108195061]
 
 [node name="FundoCenarioSomaLimpo" type="Sprite2D" parent="." unique_id=50834397]
 position = Vector2(576.50006, 323.5)
