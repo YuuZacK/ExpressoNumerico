@@ -1,19 +1,28 @@
 [gd_scene format=3 uid="uid://vg8el3w1o8xl"]
 
+[ext_resource type="Script" uid="uid://b7oovlcprbbao" path="res://cenas/niveis/tela_pausa.gd" id="1_m3r12"]
 [ext_resource type="Texture2D" uid="uid://cclmh820r3tfb" path="res://assets/sprites/fundos/teladepausa.jpeg" id="2_bsg0a"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=85388170]
+process_mode = 3
+layer = 128
+script = ExtResource("1_m3r12")
 
 [node name="Control" type="Control" parent="." unique_id=943698814]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Fundo" type="TextureRect" parent="Control" unique_id=2128013546]
-layout_mode = 0
-offset_right = 1155.0
-offset_bottom = 647.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_bsg0a")
 expand_mode = 1
 stretch_mode = 5
