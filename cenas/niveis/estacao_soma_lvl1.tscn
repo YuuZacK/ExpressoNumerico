@@ -3665,7 +3665,7 @@ texture = ExtResource("1_tkbbo")
 
 [node name="HUD" parent="." unique_id=134351520 instance=ExtResource("3_nux70")]
 
-[node name="SomAlarme" type="AudioStreamPlayer" parent="." unique_id=392268861]
+[node name="SomAlarme" type="AudioStreamPlayer" parent="HUD" unique_id=392268861]
 stream = ExtResource("3_sdke2")
 
 [node name="TileMap-Quadro" type="TileMapLayer" parent="." unique_id=73189229]
