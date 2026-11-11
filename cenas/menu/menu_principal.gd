@@ -47,6 +47,7 @@ func _on_botao_tutorial_pressed():
 
 func _on_botao_opcoes_pressed():
 	print("Abrindo menu de opções...")
+	get_tree().change_scene_to_file("res://cenas/menu/opcoes.tscn")
 	
 	
 
