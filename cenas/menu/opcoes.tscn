@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bimjxjp5y8b31"]
+
+[ext_resource type="Script" uid="uid://cbnds2kjw3gs4" path="res://opcoes.gd" id="1_qey8k"]
+[ext_resource type="Texture2D" uid="uid://cjhct0g3fd0u6" path="res://cenas/menu/layoutopcoes.jpeg" id="2_rd7us"]
+[ext_resource type="Texture2D" uid="uid://uthllj6qptrn" path="res://cenas/menu/botao_tutorial.png" id="3_ltw5e"]
+[ext_resource type="Texture2D" uid="uid://dw3l2etgkg4d5" path="res://cenas/menu/botao_tutorial_hover.png" id="4_m7vcw"]
+
+[node name="Control" type="Control" unique_id=1996009431]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qey8k")
+
+[node name="Fundo" type="TextureRect" parent="." unique_id=1017198073]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 647.0
+texture = ExtResource("2_rd7us")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BotaoTutorial" type="TextureButton" parent="." unique_id=1345982955]
+layout_mode = 0
+offset_left = 804.0
+offset_top = 450.0
+offset_right = 968.0
+offset_bottom = 505.0
+texture_normal = ExtResource("3_ltw5e")
+texture_hover = ExtResource("4_m7vcw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="BotaoTutorial" to="." method="_on_botao_tutorial_pressed"]
