@@ -14,10 +14,10 @@ func _ready() -> void:
 	if valor_pontuacao:
 		valor_pontuacao.text = str(Global.pontos)
 	
-	# 3. Calcula os erros com base nas vidas restantes (3 vidas iniciais)
+	# 3. Calcula os erros focado APENAS nas contas matemáticas erradas/puladas
 	if valor_erros:
-		var erros_cometidos = max(0, 3 - Global.vidas)
-		valor_erros.text = str(erros_cometidos)
+		var contas_erradas = 24 - Global.acertos
+		valor_erros.text = str(contas_erradas)
 	
 	# 4. Formata o tempo de jogo
 	if valor_tempo:
@@ -35,7 +35,6 @@ func _ready() -> void:
 
 func _configurar_botoes() -> void:
 	# Lista somente os botões cabíveis ao desembarque final
-	# get_node_or_null evita erros caso algum botão use nome ligeiramente diferente na cena
 	var botoes = [
 		get_node_or_null("BotaoReiniciarJogo"),
 		get_node_or_null("BotaoJogarNovamente"),
@@ -45,7 +44,6 @@ func _configurar_botoes() -> void:
 	
 	for botao in botoes:
 		# Filtro estrito: só executa se o nó existir, for TextureButton e tiver textura
-		# Labels e Buttons padrão são ignorados com segurança
 		if botao is TextureButton and botao.texture_normal != null:
 			var mascara = BitMap.new()
 			mascara.create_from_image_alpha(botao.texture_normal.get_image())

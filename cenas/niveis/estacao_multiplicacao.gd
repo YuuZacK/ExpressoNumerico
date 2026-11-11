@@ -62,8 +62,9 @@ func carregar_nivel_atual() -> void:
 
 		caixa_calculo.text = str(nivel_atual["calculo"])
 
-		hud.atualizar_pontos(Global.pontos)
-		hud.atualizar_acertos(Global.acertos, niveis.size())
+		# AQUI: Mostra apenas os pontos e acertos da FASE ATUAL no painel
+		hud.atualizar_pontos(Global.pontos_fase_atual)
+		hud.atualizar_acertos(Global.acertos_fase_atual, niveis.size())
 	else:
 		finalizar_fase()
 
@@ -98,8 +99,9 @@ func _on_caixa_de_resposta_text_changed(new_text: String) -> void:
 		Global.tempo_gasto += int(tempo_usado)
 		Global.tempo_fase_atual += int(tempo_usado)
 
-		hud.atualizar_pontos(Global.pontos)
-		hud.atualizar_acertos(Global.acertos, niveis.size())
+		# AQUI: Atualiza o painel com a pontuação e acertos da fase
+		hud.atualizar_pontos(Global.pontos_fase_atual)
+		hud.atualizar_acertos(Global.acertos_fase_atual, niveis.size())
 
 		await get_tree().create_timer(1.0).timeout
 		if not is_inside_tree():
@@ -121,6 +123,20 @@ func _on_timer_erro_timeout() -> void:
 		som_erro.play()
 	# Muda a cor da fonte para vermelho
 	caixa_resposta.add_theme_color_override("font_color", Color(1, 0, 0))
+	
+	# --- NOVA LÓGICA: ERROU, PASSOU ---
+	aguardando_transicao = true
+	caixa_resposta.editable = false # Bloqueia o teclado para não poder apagar
+	
+	# Espera 1.5 segundos para a criança ver a resposta vermelha
+	await get_tree().create_timer(1.5).timeout
+	if not is_inside_tree():
+		return
+		
+	# Restaura o tempo do HUD e avança para a próxima conta SEM dar pontos!
+	hud.tempo_atual = hud.tempo_maximo
+	indice_atual += 1
+	carregar_nivel_atual()
 
 func finalizar_fase() -> void:
 	caixa_resposta.editable = false
