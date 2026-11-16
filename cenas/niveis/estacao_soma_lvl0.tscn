@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://ceburdvfyou2k" path="res://assets/sprites/matematica/tileset-quadro.png" id="4_sdke2"]
 [ext_resource type="Texture2D" uid="uid://75tlfn8yd03l" path="res://assets/sprites/matematica/tileset-matematica.jpg" id="5_kj17w"]
 [ext_resource type="Texture2D" uid="uid://dlumsjwsh08ug" path="res://assets/sprites/fundos/layout tutorial.png" id="7_sjo3p"]
-[ext_resource type="Texture2D" uid="uid://chelmub44h5sm" path="res://cenas/menu/botao_jogar.png" id="8_sjo3p"]
-[ext_resource type="Texture2D" uid="uid://62fl663adtdv" path="res://cenas/menu/botao_jogar_hover.png" id="9_aqdri"]
+[ext_resource type="Texture2D" uid="uid://ybbvswukoyhk" path="res://assets/botoes/BotaoJogarLayoutTutorial.png" id="9_aqdri"]
+[ext_resource type="Texture2D" uid="uid://cctmu0mtgxiwr" path="res://assets/hovers/BotaoJogarLayoutTutorialHover.png" id="10_ncff0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ncff0"]
 texture = ExtResource("4_sdke2")
@@ -10508,12 +10508,12 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="BotãoJogar" type="TextureButton" parent="." unique_id=187526988]
-offset_left = 483.0
-offset_top = 483.0
-offset_right = 1040.0
-offset_bottom = 594.0
-texture_normal = ExtResource("8_sjo3p")
-texture_hover = ExtResource("9_aqdri")
+offset_left = 623.0
+offset_top = 499.0
+offset_right = 901.0
+offset_bottom = 598.0
+texture_normal = ExtResource("9_aqdri")
+texture_hover = ExtResource("10_ncff0")
 ignore_texture_size = true
 stretch_mode = 5
 

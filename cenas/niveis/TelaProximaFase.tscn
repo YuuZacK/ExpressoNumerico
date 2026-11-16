@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ckjxuyy3hl30l" path="res://assets/sprites/fundos/TelaProximaFaseMultiplicacao.jpeg" id="3_su20b"]
 [ext_resource type="Texture2D" uid="uid://b11neo3n1ucg" path="res://assets/sprites/fundos/TelaProximaFaseSubtracao.jpeg" id="4_gkal1"]
 [ext_resource type="Texture2D" uid="uid://d3kelcywkhffa" path="res://assets/botoes/BotaoTelaProximaFaseDivisaoMenuPrincipal.png" id="5_tbf4f"]
+[ext_resource type="Texture2D" uid="uid://gc5o34cdc1e7" path="res://assets/hovers/BotaoTelaProximaFaseDivisaoMenuPrincipalHover.png" id="6_6ng52"]
 [ext_resource type="Texture2D" uid="uid://dsbjyfedjught" path="res://assets/botoes/BotaoProximaFase.png" id="6_ae7my"]
 
 [node name="Control" type="Control" unique_id=312688989]
@@ -56,19 +57,20 @@ stretch_mode = 5
 [node name="BotaoMenuPrincipal" type="TextureButton" parent="." unique_id=574584986]
 layout_mode = 0
 offset_left = 286.0
-offset_top = 553.0
-offset_right = 502.0
-offset_bottom = 631.0
+offset_top = 559.0
+offset_right = 509.0
+offset_bottom = 638.0
 texture_normal = ExtResource("5_tbf4f")
+texture_hover = ExtResource("6_6ng52")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="BotaoProximaFase" type="TextureButton" parent="." unique_id=991274226]
 layout_mode = 0
-offset_left = -12.0
-offset_top = 557.0
-offset_right = 307.0
-offset_bottom = 632.0
+offset_left = 14.0
+offset_top = 554.0
+offset_right = 267.0
+offset_bottom = 637.0
 texture_normal = ExtResource("6_ae7my")
 ignore_texture_size = true
 stretch_mode = 5
