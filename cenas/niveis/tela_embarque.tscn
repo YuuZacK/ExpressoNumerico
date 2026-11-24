@@ -41,3 +41,4 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [connection signal="pressed" from="BotaoProximafase" to="." method="_on_botao_proximafase_pressed"]
+[connection signal="pressed" from="BotaoMenuPrincipal" to="." method="_on_botao_menu_principal_pressed"]
