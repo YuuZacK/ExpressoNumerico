@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b7oovlcprbbao" path="res://cenas/niveis/tela_pausa.gd" id="1_m3r12"]
 [ext_resource type="Texture2D" uid="uid://cclmh820r3tfb" path="res://assets/sprites/fundos/teladepausa.jpeg" id="2_bsg0a"]
+[ext_resource type="Texture2D" uid="uid://btj8vho6haxlh" path="res://assets/botoes/BotaoVoltarAoJogoPausa.png" id="3_qywa0"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=85388170]
 process_mode = 3
@@ -29,10 +30,13 @@ stretch_mode = 5
 
 [node name="BotaoVoltaraoJogo" type="TextureButton" parent="Control" unique_id=1323767429]
 layout_mode = 0
-offset_left = 359.0
-offset_top = 177.0
-offset_right = 796.0
-offset_bottom = 231.0
+offset_left = 339.0
+offset_top = 170.0
+offset_right = 827.0
+offset_bottom = 246.0
+texture_normal = ExtResource("3_qywa0")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="BotaoReiniciar" type="TextureButton" parent="Control" unique_id=1564045381]
 layout_mode = 0
@@ -54,3 +58,5 @@ offset_left = 429.0
 offset_top = 440.0
 offset_right = 724.0
 offset_bottom = 500.0
+
+[connection signal="pressed" from="Control/BotaoVoltaraoJogo" to="." method="_on_botao_voltarao_jogo_pressed"]

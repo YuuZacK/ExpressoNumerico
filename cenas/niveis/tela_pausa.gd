@@ -9,9 +9,46 @@ const CENAS_SEM_PAUSA: Array[String] = [
 	"TelaDerrota"
 ]
 
+@onready var botao_voltar_ao_jogo: TextureButton = $BotaoVoltaraoJogo
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
+	call_deferred("_configurar_botoes")
+
+func _configurar_botoes() -> void:
+	var botoes: Array[TextureButton] = [botao_voltar_ao_jogo]
+	
+	for botao in botoes:
+		if botao != null:
+			botao.process_mode = Node.PROCESS_MODE_ALWAYS
+			if botao.texture_normal != null:
+				var imagem = botao.texture_normal.get_image()
+				if imagem != null:
+					var mascara = BitMap.new()
+					mascara.create_from_image_alpha(imagem)
+					botao.texture_click_mask = mascara
+			
+			botao.pivot_offset = botao.size / 2.0
+			if not botao.mouse_entered.is_connected(_ao_passar_o_mouse):
+				botao.mouse_entered.connect(_ao_passar_o_mouse.bind(botao))
+			if not botao.mouse_exited.is_connected(_ao_tirar_o_mouse):
+				botao.mouse_exited.connect(_ao_tirar_o_mouse.bind(botao))
+
+func _ao_passar_o_mouse(botao_focado: Control) -> void:
+	if botao_focado == null:
+		return
+	botao_focado.pivot_offset = botao_focado.size / 2.0
+	botao_focado.scale = Vector2(1.15, 1.15)
+	botao_focado.modulate = Color(0.85, 0.85, 0.85)
+	botao_focado.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+
+func _ao_tirar_o_mouse(botao_focado: Control) -> void:
+	if botao_focado == null:
+		return
+	botao_focado.pivot_offset = botao_focado.size / 2.0
+	botao_focado.scale = Vector2(1.0, 1.0)
+	botao_focado.modulate = Color(1.0, 1.0, 1.0)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("pause"):
@@ -29,6 +66,12 @@ func toggle_pause() -> void:
 	var should_pause: bool = not get_tree().paused
 	get_tree().paused = should_pause
 	visible = should_pause
+	if should_pause:
+		call_deferred("_atualizar_pivot_botoes")
+
+func _atualizar_pivot_botoes() -> void:
+	if botao_voltar_ao_jogo != null:
+		botao_voltar_ao_jogo.pivot_offset = botao_voltar_ao_jogo.size / 2.0
 
 # --- Sinais dos Botões ---
 
